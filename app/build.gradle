@@ -1,0 +1,117 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.marketapp"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerVersion '1.5.31'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    def multidex_version = "2.0.1"
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+
+    // compose
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.activity:activity-compose:1.4.0-rc01'
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+
+    // viewModel
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+
+    // fragments
+    implementation "androidx.fragment:fragment-ktx:$fragments_version"
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.5.0"
+
+    // dagger
+    implementation 'com.google.dagger:hilt-android:2.39.1'
+    kapt 'com.google.dagger:hilt-compiler:2.39.1'
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.39.1'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.39.1'
+    testImplementation 'com.google.dagger:hilt-android-testing:2.39.1'
+    kaptTest 'com.google.dagger:hilt-compiler:2.39.1'
+
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+
+}
+
+// https://kotlinlang.org/docs/kapt.html#non-existent-type-correction
+// Some annotation processors (such as AutoFactory) rely on precise types in declaration signatures.
+// By default, kapt replaces every unknown type (including types for the generated classes) to
+// NonExistentClass, but you can change this behavior. Add the option to the build.gradle file
+// to enable error type inferring in stubs:
+kapt {
+    correctErrorTypes true
+}
+
+// The Hilt Gradle plugin offers an option for performing Hilt’s classpath aggregation in a
+// dedicated Gradle task. This allows the Hilt annotation processors to be isolating so they are
+// only invoked when necessary. This reduces incremental compilation times by reducing how often an
+// incremental change causes a rebuild of the Dagger components. Enabling this option also enables
+// sharing test components and classpath aggregation. Note that this option replaces
+// enableExperimentalClasspathAggregation since it has the same benefits without any of its caveats.
+hilt {
+    enableAggregatingTask = true
+}
