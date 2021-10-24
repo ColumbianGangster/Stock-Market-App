@@ -1,6 +1,6 @@
 package com.example.marketapp.ui.composables
 
-import androidx.compose.animation.animateColorAsState
+
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -22,9 +22,6 @@ fun AnnualReportRow(annualReport: AnnualReport, clickListener: (AnnualReport) ->
     // https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons
     Row {
         var isExpanded by remember { mutableStateOf(false) }
-        val surfaceColor: Color by animateColorAsState(
-            if (isExpanded) MaterialTheme.colors.primary else MaterialTheme.colors.surface,
-        )
         Surface(
             shape = MaterialTheme.shapes.medium,
             elevation = 1.dp,
