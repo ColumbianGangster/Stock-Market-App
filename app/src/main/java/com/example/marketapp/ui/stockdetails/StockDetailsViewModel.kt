@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.marketapp.domain.GetStockDetailsUseCase
-import com.example.marketapp.domain.Model
+import com.example.marketapp.domain.DomainStockDetails
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -31,6 +31,6 @@ class StockViewModel @Inject constructor(private val useCase: GetStockDetailsUse
 
 sealed class StockUiState {
     data class Loading(val isLoading: Boolean): StockUiState()
-    data class Success(val model: Model): StockUiState()
+    data class Success(val domainStockDetails: DomainStockDetails): StockUiState()
     data class Error(val exception: Throwable): StockUiState()
 }

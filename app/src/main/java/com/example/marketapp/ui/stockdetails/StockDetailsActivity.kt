@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.example.marketapp.domain.Model
+import com.example.marketapp.domain.DomainStockDetails
 import com.example.marketapp.ui.composables.*
 import com.example.marketapp.ui.theme.MarketAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +23,7 @@ class StockDetailsActivity : ComponentActivity() {
         viewModel.mutableLiveData.observe(this@StockDetailsActivity, { uiState ->
             when (uiState) {
                 is StockUiState.Loading -> showLoading(uiState.isLoading)
-                is StockUiState.Success -> showContent(uiState.model)
+                is StockUiState.Success -> showContent(uiState.domainStockDetails)
                 is StockUiState.Error -> showError(uiState.exception)
             }
         })
@@ -54,14 +54,14 @@ class StockDetailsActivity : ComponentActivity() {
             })
     }
 
-    private fun showContent(model: Model) {
+    private fun showContent(domainStockDetails: DomainStockDetails) {
         setContent {
             MarketAppTheme {
                 BuildToolbar {
                     Column(
                         modifier = Modifier.fillMaxWidth(1F)) {
-                        StockSurface(model.ticker, model.stock, model.companyOverview)
-                        model.incomeStatement?.annualReports?.let { annualReports ->
+                        StockSurface(domainStockDetails.ticker, domainStockDetails.stock, domainStockDetails.companyOverview)
+                        domainStockDetails.incomeStatement?.annualReports?.let { annualReports ->
                             AnnualReportLazyColumn(annualReports) {
 
                             }
