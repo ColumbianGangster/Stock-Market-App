@@ -1,6 +1,8 @@
 package com.example.marketapp.data
 
 import com.example.marketapp.BuildConfig
+import com.example.marketapp.domain.GetStockDetailsUseCase
+import com.example.marketapp.domain.GetStockDetailsUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,8 +48,10 @@ class NetworkModule {
         retrofit.create(StockService::class.java)
 
     @Provides
-    @Singleton
     fun provideStockRepository(service: StockService): StockRepository =
         StockRepositoryImpl(service)
 
+    @Provides
+    fun provideGetStockDetailsUseCase(stockRepository: StockRepository): GetStockDetailsUseCase =
+        GetStockDetailsUseCaseImpl(stockRepository)
 }

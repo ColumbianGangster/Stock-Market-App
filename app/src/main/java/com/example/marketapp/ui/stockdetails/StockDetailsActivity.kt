@@ -1,4 +1,4 @@
-package com.example.marketapp.ui.stockdata
+package com.example.marketapp.ui.stockdetails
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,19 +8,19 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.example.marketapp.data.Stock
+import com.example.marketapp.domain.Model
 import com.example.marketapp.ui.composables.*
 import com.example.marketapp.ui.theme.MarketAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class StockActivity : ComponentActivity() {
+class StockDetailsActivity : ComponentActivity() {
 
     private val viewModel: StockViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.mutableLiveData.observe(this@StockActivity, { uiState ->
+        viewModel.mutableLiveData.observe(this@StockDetailsActivity, { uiState ->
             when (uiState) {
                 is StockUiState.Loading -> showLoading(uiState.isLoading)
                 is StockUiState.Success -> showContent(uiState.model)
@@ -59,10 +59,9 @@ class StockActivity : ComponentActivity() {
             MarketAppTheme {
                 BuildToolbar {
                     Column(
-                        modifier = Modifier
-                            .fillMaxWidth(1F)) {
-                        StockSurface(model.stock, model.companyOverview)
-                        model.incomeStatement.annualReports?.let { annualReports ->
+                        modifier = Modifier.fillMaxWidth(1F)) {
+                        StockSurface(model.ticker, model.stock, model.companyOverview)
+                        model.incomeStatement?.annualReports?.let { annualReports ->
                             AnnualReportLazyColumn(annualReports) {
 
                             }

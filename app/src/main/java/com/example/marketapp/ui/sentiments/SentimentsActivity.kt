@@ -8,14 +8,12 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import com.example.marketapp.data.Sentiment
 import com.example.marketapp.ui.composables.LoadingSurface
 import com.example.marketapp.ui.composables.MarketAlertDialog
 import com.example.marketapp.ui.composables.MarketTopAppBar
 import com.example.marketapp.ui.composables.SentimentLazyColumn
-import com.example.marketapp.ui.stockdata.StockActivity
+import com.example.marketapp.ui.stockdetails.StockDetailsActivity
 import com.example.marketapp.ui.theme.MarketAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -72,7 +70,7 @@ class SentimentsActivity : ComponentActivity() {
             MarketAppTheme {
                 BuildToolbar {
                     SentimentLazyColumn(sentiments) { sentiment ->
-                        val intent = Intent(this, StockActivity::class.java).apply {
+                        val intent = Intent(this, StockDetailsActivity::class.java).apply {
                             putExtra("TICKER", sentiment.ticker)
                         }
                         startActivity(intent)
