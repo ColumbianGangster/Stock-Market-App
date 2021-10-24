@@ -1,11 +1,13 @@
 package com.example.marketapp.data
 
+import android.content.Context
 import com.example.marketapp.BuildConfig
 import com.example.marketapp.domain.GetStockDetailsUseCase
 import com.example.marketapp.domain.GetStockDetailsUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -52,6 +54,9 @@ class NetworkModule {
         StockRepositoryImpl(service)
 
     @Provides
-    fun provideGetStockDetailsUseCase(stockRepository: StockRepository): GetStockDetailsUseCase =
-        GetStockDetailsUseCaseImpl(stockRepository)
+    fun provideStorageRepository(@ApplicationContext context: Context): StorageRepository = EncryptedFileRepository(context)
+
+    @Provides
+    fun provideGetStockDetailsUseCase(stockRepository: StockRepository, storageRepository: StorageRepository): GetStockDetailsUseCase =
+        GetStockDetailsUseCaseImpl(stockRepository, storageRepository)
 }

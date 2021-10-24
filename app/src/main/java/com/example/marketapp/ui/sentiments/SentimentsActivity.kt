@@ -71,7 +71,7 @@ class SentimentsActivity : ComponentActivity() {
                 BuildToolbar {
                     SentimentLazyColumn(sentiments) { sentiment ->
                         val intent = Intent(this, StockDetailsActivity::class.java).apply {
-                            putExtra("TICKER", sentiment.ticker)
+                            putExtra(StockDetailsActivity.TICKER, sentiment.ticker)
                         }
                         startActivity(intent)
                     }

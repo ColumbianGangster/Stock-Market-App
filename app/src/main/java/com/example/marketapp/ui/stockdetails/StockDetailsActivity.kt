@@ -16,6 +16,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class StockDetailsActivity : ComponentActivity() {
 
+    companion object {
+        val TICKER = "TICKER"
+    }
+
     private val viewModel: StockViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +82,7 @@ class StockDetailsActivity : ComponentActivity() {
                 BuildToolbar {
                     MarketAlertDialog(throwable,
                         {
-                            intent.getStringExtra("TICKER")?.let { ticker ->
+                            intent.getStringExtra(TICKER)?.let { ticker ->
                                 viewModel.getStock(ticker)
                             }
                         }, {

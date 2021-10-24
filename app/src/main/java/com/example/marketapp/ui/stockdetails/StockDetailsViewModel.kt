@@ -19,7 +19,8 @@ class StockViewModel @Inject constructor(private val useCase: GetStockDetailsUse
         mutableLiveData.value = StockUiState.Loading(true)
         viewModelScope.launch {
             try {
-                mutableLiveData.value = StockUiState.Success(useCase.execute(ticker))
+                val result = useCase.execute(ticker)
+                mutableLiveData.value = StockUiState.Success(result)
                 delay(500)
             } catch (exception: Exception) {
                 mutableLiveData.value = StockUiState.Error(exception)
