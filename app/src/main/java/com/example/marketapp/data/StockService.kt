@@ -19,4 +19,11 @@ interface StockService {
         @Query("symbol") symbol: String,
         @Query("apikey") apikey: String
     ): IncomeStatement
+
+    @GET("https://www.alphavantage.co/query")
+    suspend fun getCompanyOverview(
+        @Query("function") function: String,
+        @Query("symbol") symbol: String,
+        @Query("apikey") apikey: String
+    ): CompanyOverview
 }

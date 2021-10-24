@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import com.example.marketapp.data.Stock
 import com.example.marketapp.ui.composables.*
 import com.example.marketapp.ui.theme.MarketAppTheme
@@ -57,10 +58,14 @@ class StockActivity : ComponentActivity() {
         setContent {
             MarketAppTheme {
                 BuildToolbar {
-                    Column {
-                        StockSurface(model.stock)
-                        AnnualReportLazyColumn(model.incomeStatement.annualReports) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(1F)) {
+                        StockSurface(model.stock, model.companyOverview)
+                        model.incomeStatement.annualReports?.let { annualReports ->
+                            AnnualReportLazyColumn(annualReports) {
 
+                            }
                         }
                     }
                 }

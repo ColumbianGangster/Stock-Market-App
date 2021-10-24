@@ -3,10 +3,7 @@ package com.example.marketapp.ui.stockdata
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.marketapp.data.IncomeStatement
-import com.example.marketapp.data.Sentiment
-import com.example.marketapp.data.Stock
-import com.example.marketapp.data.StockRepository
+import com.example.marketapp.data.*
 import com.example.marketapp.ui.sentiments.MainUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -25,7 +22,9 @@ class StockViewModel @Inject constructor(private val stockRepository: StockRepos
             try {
                 stockRepository.getStock(ticker)?.let { stock ->
                     stockRepository.getIncomeStatement(ticker).let { incomeStatement ->
-                        mutableLiveData.value = StockUiState.Success(Model(stock, incomeStatement))
+                        stockRepository.getCompanyOverview(ticker).let { companyOverview ->
+                            mutableLiveData.value = StockUiState.Success(Model(stock, incomeStatement, companyOverview))
+                        }
                     }
                 }?: run {
                     mutableLiveData.value = StockUiState.Error(IllegalStateException("No such ticker"))
@@ -39,7 +38,7 @@ class StockViewModel @Inject constructor(private val stockRepository: StockRepos
     }
 }
 
-data class Model(val stock: Stock, val incomeStatement: IncomeStatement)
+data class Model(val stock: Stock, val incomeStatement: IncomeStatement, val companyOverview: CompanyOverview)
 
 sealed class StockUiState {
     data class Loading(val isLoading: Boolean): StockUiState()

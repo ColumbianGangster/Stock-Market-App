@@ -8,10 +8,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.marketapp.data.CompanyOverview
 import com.example.marketapp.data.Stock
 
 @Composable
-fun StockSurface(stock: Stock) {
+fun StockSurface(stock: Stock, companyOverview: CompanyOverview) {
     Surface(modifier = Modifier
         .padding(all = 8.dp)
         .fillMaxWidth()) {
@@ -50,13 +51,28 @@ fun StockSurface(stock: Stock) {
                         style = MaterialTheme.typography.body2
                     )
 
-                    stock.`52_week_low`?.let {
-                        Text(
-                            text = "52 week low/high: ${stock.`52_week_low`} / ${stock.`52_week_high`}",
-                            modifier = Modifier.padding(all = 4.dp),
-                            style = MaterialTheme.typography.body2
-                        )
-                    }
+                    Text(
+                        text = "Description: ${companyOverview.Description}",
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.body2
+                    )
+                    Text(
+                        text = "Country: ${companyOverview.Country}",
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.body2
+                    )
+
+                    Text(
+                        text = "Sector: ${companyOverview.Sector}",
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.body2
+                    )
+
+                    Text(
+                        text = "Industry: ${companyOverview.Industry}",
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.body2
+                    )
                 }
             }
         }
