@@ -37,17 +37,3 @@ fun AnnualReportLazyColumn(
         }
     }
 }
-
-// Credit: https://stackoverflow.com/questions/41859525/how-to-go-about-formatting-1200-to-1-2k-in-android-studio
-fun String.getFormatedNumber(): String = if (startsWith("-")) {
-    "-" + drop(1).getFormattedInner()
-} else {
-    getFormattedInner()
-}
-
-fun String.getFormattedInner(): String {
-    if (this.toDouble() < 1000) return "" + this
-    val exp = (ln(this.toDouble()) / ln(1000.0)).toInt()
-    return String.format("%.1f %c", this.toDouble() / 1000.0.pow(exp.toDouble()), "kMBT"[exp - 1])
-}
-

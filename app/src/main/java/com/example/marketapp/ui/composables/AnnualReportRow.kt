@@ -38,14 +38,14 @@ fun AnnualReportRow(annualReport: AnnualReport, clickListener: (AnnualReport) ->
                 }) {
                 Column {
                     Text(
-                        text = "Net income: ${annualReport.netIncome.getFormatedNumber()} ${annualReport.reportedCurrency}",
+                        text = "Net income: ${annualReport.formattedNetIncome} ${annualReport.reportedCurrency}",
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2,
                         color = if (annualReport.netIncome.toDouble() < 0) Color.Red else Color.Black
                     )
 
                     Text(
-                        text = "Gross profit: ${annualReport.grossProfit.getFormatedNumber()} ${annualReport.reportedCurrency}",
+                        text = "Gross profit: ${annualReport.formattedGrossProfit} ${annualReport.reportedCurrency}",
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2,
                         color = if (annualReport.grossProfit.toDouble() < 0) Color.Red else Color.Black

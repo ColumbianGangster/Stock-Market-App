@@ -4,6 +4,8 @@ import com.example.marketapp.data.StockRepository
 import com.example.marketapp.data.StorageRepository
 import com.example.marketapp.domain.GetStockDetailsUseCase
 import com.example.marketapp.domain.GetStockDetailsUseCaseImpl
+import com.example.marketapp.domain.IncomeStatementMapper
+import com.example.marketapp.domain.IncomeStatementMapperImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,8 +16,15 @@ import dagger.hilt.components.SingletonComponent
 class DomainModule {
 
     @Provides
-    fun provideGetStockDetailsUseCase(stockRepository: StockRepository, storageRepository: StorageRepository): GetStockDetailsUseCase =
-        GetStockDetailsUseCaseImpl(stockRepository, storageRepository)
+    fun provideIncomeStatementMapper(): IncomeStatementMapper = IncomeStatementMapperImpl()
+
+    @Provides
+    fun provideGetStockDetailsUseCase(
+        stockRepository: StockRepository,
+        storageRepository: StorageRepository,
+        incomeStatementMapper: IncomeStatementMapper
+    ): GetStockDetailsUseCase =
+        GetStockDetailsUseCaseImpl(stockRepository, storageRepository, incomeStatementMapper)
 
 
 }

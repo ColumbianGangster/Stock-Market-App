@@ -4,4 +4,9 @@ import com.example.marketapp.data.CompanyOverview
 import com.example.marketapp.data.IncomeStatement
 import com.example.marketapp.data.Stock
 
-data class DomainStockDetails(val ticker: String, val stock: Stock?, val incomeStatement: IncomeStatement?, val companyOverview: CompanyOverview?)
+data class DomainStockDetails(
+    val ticker: String,
+    val stock: Stock?,
+    val incomeStatement: IncomeStatement?,
+    val companyOverview: CompanyOverview?
+)
