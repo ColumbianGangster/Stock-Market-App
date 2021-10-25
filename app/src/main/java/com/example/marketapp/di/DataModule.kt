@@ -1,9 +1,8 @@
-package com.example.marketapp.data
+package com.example.marketapp.di
 
 import android.content.Context
 import com.example.marketapp.BuildConfig
-import com.example.marketapp.domain.GetStockDetailsUseCase
-import com.example.marketapp.domain.GetStockDetailsUseCaseImpl
+import com.example.marketapp.data.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class) // Formerly ApplicationComponent, to allow usage of Hilt in non-Android Gradle modules
-class NetworkModule {
+class DataModule {
 
     @Provides
     fun provideBaseUrl() = Constants.BASE_URL
@@ -56,7 +55,4 @@ class NetworkModule {
     @Provides
     fun provideStorageRepository(@ApplicationContext context: Context): StorageRepository = EncryptedFileRepository(context)
 
-    @Provides
-    fun provideGetStockDetailsUseCase(stockRepository: StockRepository, storageRepository: StorageRepository): GetStockDetailsUseCase =
-        GetStockDetailsUseCaseImpl(stockRepository, storageRepository)
 }
