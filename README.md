@@ -1,6 +1,8 @@
 # Stock-Market-App
 View investor sentiments of a stock and perform horizontal financial statement analysis
 
+For reviewers: Time spent on this was just over 2 days, and therefore it has areas for improvement as noted below. Please also notice my clean commit messages.
+
 Technologies
 - Jetpack Compose. This is my first investigation into Jetpack Compose.
 - MVVM with the Loading Content Error pattern via a sealed class.
@@ -23,3 +25,4 @@ Known issues
 - Scrolling issue on the Stock Details screen, noticeable on smaller devices or when View Company Overview is expanded
 - The APIs on the Stock Details screen have quota limits, though this is mitigated by front end caching.
 - The Stock Price and Day Change is cached, which means it is unfortunately not live.
+
