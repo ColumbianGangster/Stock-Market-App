@@ -52,7 +52,9 @@ class StockDetailsActivity : ComponentActivity() {
     private fun BuildToolbar(f: @Composable () -> Unit) {
         Scaffold(
             topBar = {
-                MarketTopAppBar("Stock Details")
+                MarketTopAppBar("Stock Details", true) {
+                    finish()
+                }
             }, content = {
                 f.invoke()
             })

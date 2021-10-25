@@ -59,7 +59,7 @@ class SentimentsActivity : ComponentActivity() {
     private fun BuildToolbar(f: @Composable () -> Unit) {
         Scaffold(
             topBar = {
-                MarketTopAppBar("Stock Sentiments")
+                MarketTopAppBar("Stock Sentiments", false)
             }, content = {
                 f.invoke()
             })
