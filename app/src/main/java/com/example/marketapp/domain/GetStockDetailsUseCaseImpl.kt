@@ -11,9 +11,6 @@ class GetStockDetailsUseCaseImpl(
     private val incomeStatementMapper: IncomeStatementMapper
 ) : GetStockDetailsUseCase {
 
-    // coroutineScope will cancel whenever any of its children fail. So, if one network request
-    // fails, all of the other requests are cancelled immediately.
-    // A supervisorScope won’t cancel other children when one of them fails.
     override suspend fun execute(ticker: String): DomainStockDetails = supervisorScope {
         val cachedStock = storageRepository.read(ticker + StorageRepository.STOCK_FILENAME)
         val cachedIncomeStatement =

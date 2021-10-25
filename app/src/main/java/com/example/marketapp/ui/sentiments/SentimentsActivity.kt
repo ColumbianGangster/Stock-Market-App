@@ -8,6 +8,8 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.res.stringResource
+import com.example.marketapp.R
 import com.example.marketapp.data.Sentiment
 import com.example.marketapp.ui.composables.LoadingSurface
 import com.example.marketapp.ui.composables.MarketAlertDialog
@@ -25,14 +27,15 @@ class SentimentsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            setContent {
-                MarketAppTheme {
-                    BuildToolbar {
-
-                    }
+            MarketAppTheme {
+                BuildToolbar {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
         viewModel.mutableLiveData.observe(this@SentimentsActivity, { uiState ->
             when (uiState) {
                 is MainUiState.Loading -> showLoading(uiState.isLoading)
@@ -59,7 +62,7 @@ class SentimentsActivity : ComponentActivity() {
     private fun BuildToolbar(f: @Composable () -> Unit) {
         Scaffold(
             topBar = {
-                MarketTopAppBar("Stock Sentiments", false)
+                MarketTopAppBar(stringResource(R.string.appbar_title_stock_sentiments), false)
             }, content = {
                 f.invoke()
             })

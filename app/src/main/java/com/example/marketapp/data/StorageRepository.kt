@@ -6,8 +6,8 @@ interface StorageRepository {
 
 
     companion object {
-        val STOCK_FILENAME = "_stock.json"
-        val COMPANY_OVERVIEW_FILENAME = "_company_overview.json"
-        val INCOME_STATEMENT_FILENAME = "_income_statement.json"
+        const val STOCK_FILENAME = "_stock.json"
+        const val COMPANY_OVERVIEW_FILENAME = "_company_overview.json"
+        const val INCOME_STATEMENT_FILENAME = "_income_statement.json"
     }
 }

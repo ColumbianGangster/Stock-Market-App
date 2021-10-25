@@ -7,10 +7,11 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.marketapp.R
 import com.example.marketapp.data.AnnualReport
-import kotlin.math.ln
-import kotlin.math.pow
+
 
 @Composable
 fun AnnualReportLazyColumn(
@@ -22,12 +23,12 @@ fun AnnualReportLazyColumn(
             .padding(all = 8.dp)
     ) {
         Text(
-            text = "Horizontal Financial Statement Analysis",
+            text = stringResource(R.string.annual_report_header),
             color = MaterialTheme.colors.secondaryVariant,
             style = MaterialTheme.typography.subtitle2
         )
         Text(
-            text = "Detect growth trends across different time periods",
+            text = stringResource(R.string.annual_report_subheader),
         )
         Spacer(modifier = Modifier.height(4.dp))
         LazyColumn {

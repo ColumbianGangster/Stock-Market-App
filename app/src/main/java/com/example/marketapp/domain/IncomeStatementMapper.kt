@@ -4,7 +4,6 @@ import com.example.marketapp.data.IncomeStatement
 
 
 interface IncomeStatementMapper {
-
     fun map(incomeStatement: IncomeStatement?): IncomeStatement?
 }
 

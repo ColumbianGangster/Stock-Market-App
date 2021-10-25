@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.marketapp.R
 import com.example.marketapp.domain.DomainStockDetails
 import com.example.marketapp.ui.composables.*
 import com.example.marketapp.ui.theme.MarketAppTheme
@@ -17,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class StockDetailsActivity : ComponentActivity() {
 
     companion object {
-        val TICKER = "TICKER"
+        const val TICKER = "TICKER"
     }
 
     private val viewModel: StockViewModel by viewModels()
@@ -31,7 +33,7 @@ class StockDetailsActivity : ComponentActivity() {
                 is StockUiState.Error -> showError(uiState.exception)
             }
         })
-        intent.getStringExtra("TICKER")?.let { ticker ->
+        intent.getStringExtra(TICKER)?.let { ticker ->
             viewModel.getStock(ticker)
         }
     }
@@ -52,7 +54,7 @@ class StockDetailsActivity : ComponentActivity() {
     private fun BuildToolbar(f: @Composable () -> Unit) {
         Scaffold(
             topBar = {
-                MarketTopAppBar("Stock Details", true) {
+                MarketTopAppBar(stringResource(R.string.appbar_title_stock_details), true) {
                     finish()
                 }
             }, content = {

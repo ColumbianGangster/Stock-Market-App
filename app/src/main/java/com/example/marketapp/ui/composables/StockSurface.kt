@@ -9,11 +9,13 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.marketapp.R
 import com.example.marketapp.data.CompanyOverview
 import com.example.marketapp.data.Stock
 
-@OptIn(ExperimentalAnimationApi::class) // for AnimatedVisibility
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview?) {
     Surface(modifier = Modifier
@@ -38,19 +40,19 @@ fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview
                 var visible by remember { mutableStateOf(false) }
                 Column {
                     Text(
-                        text = "Name: ${stock?.name}",
+                        text = stringResource(R.string.stock_name, stock?.name?: ""),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2
                     )
 
                     Text(
-                        text = "Price: ${stock?.price.toString() + " " + stock?.currency}",
+                        text = stringResource(R.string.stock_price, stock?.price?: 0.0, stock?.currency?: ""),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2
                     )
 
                     Text(
-                        text = "Day Change: ${stock?.day_change}%",
+                        text = stringResource(R.string.stock_day_change, stock?.day_change?: 0),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2
                     )
@@ -61,7 +63,7 @@ fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview
                         companyOverview?.Industry != null) {
 
                         OutlinedButton(modifier = Modifier.fillMaxWidth().padding(all = 4.dp), onClick = { visible = !visible }) {
-                            Text(text = "View Company Overview")
+                            Text(text = stringResource(R.string.stock_company_overview_cta))
                         }
                     }
 
@@ -69,32 +71,30 @@ fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview
                     AnimatedVisibility(
                         visible = visible,
                         enter = fadeIn(
-                            // Overwrites the initial value of alpha to 0.4f for fade in, 0 by default
                             initialAlpha = 0.4f
                         ),
                         exit = fadeOut(
-                            // Overwrites the default animation with tween
                             animationSpec = tween(durationMillis = 250)
                         )
                     ) {
                         Column {
                             Text(
-                                text = "Description: ${companyOverview?.Description}",
+                                text = stringResource(R.string.company_overview_description, companyOverview?.Description?: ""),
                                 modifier = Modifier.padding(all = 4.dp),
                                 style = MaterialTheme.typography.body2
                             )
                             Text(
-                                text = "Country: ${companyOverview?.Country}",
+                                text = stringResource(R.string.company_overview_country, companyOverview?.Country?: ""),
                                 modifier = Modifier.padding(all = 4.dp),
                                 style = MaterialTheme.typography.body2
                             )
                             Text(
-                                text = "Sector: ${companyOverview?.Sector}",
+                                text = stringResource(R.string.company_overview_sector, companyOverview?.Sector?: ""),
                                 modifier = Modifier.padding(all = 4.dp),
                                 style = MaterialTheme.typography.body2
                             )
                             Text(
-                                text = "Industry: ${companyOverview?.Industry}",
+                                text = stringResource(R.string.company_overview_industry, companyOverview?.Industry?: ""),
                                 modifier = Modifier.padding(all = 4.dp),
                                 style = MaterialTheme.typography.body2
                             )

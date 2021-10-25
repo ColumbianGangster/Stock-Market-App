@@ -22,6 +22,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "STOCK_DATA_API_KEY", '"PW7bsJU6JCIvlqFstqnI1tGOgUIgf7FeaUQbCeqp"')
+            buildConfigField("String", "ALPHAVANTAGE_API_KEY", '"O19XN9FFTR09SV72"')
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -62,7 +67,6 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation 'androidx.activity:activity-compose:1.4.0-rc01'
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    // not all material design icons exist within material-icons
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
 
     // Coroutines
@@ -99,21 +103,10 @@ dependencies {
 
 }
 
-// https://kotlinlang.org/docs/kapt.html#non-existent-type-correction
-// Some annotation processors (such as AutoFactory) rely on precise types in declaration signatures.
-// By default, kapt replaces every unknown type (including types for the generated classes) to
-// NonExistentClass, but you can change this behavior. Add the option to the build.gradle file
-// to enable error type inferring in stubs:
 kapt {
     correctErrorTypes true
 }
 
-// The Hilt Gradle plugin offers an option for performing Hilt’s classpath aggregation in a
-// dedicated Gradle task. This allows the Hilt annotation processors to be isolating so they are
-// only invoked when necessary. This reduces incremental compilation times by reducing how often an
-// incremental change causes a rebuild of the Dagger components. Enabling this option also enables
-// sharing test components and classpath aggregation. Note that this option replaces
-// enableExperimentalClasspathAggregation since it has the same benefits without any of its caveats.
 hilt {
     enableAggregatingTask = true
 }

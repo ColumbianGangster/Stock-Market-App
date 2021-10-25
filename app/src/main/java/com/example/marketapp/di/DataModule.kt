@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class) // Formerly ApplicationComponent, to allow usage of Hilt in non-Android Gradle modules
+@InstallIn(SingletonComponent::class)
 class DataModule {
 
     @Provides

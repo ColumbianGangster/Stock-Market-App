@@ -1,6 +1,5 @@
 package com.example.marketapp.ui.composables
 
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,17 +11,18 @@ import androidx.compose.material.icons.rounded.ThumbUp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.marketapp.R
 import com.example.marketapp.data.Sentiment
 
 @Composable
 fun SentimentRow(sentiment: Sentiment, clickListener: (Sentiment) -> Unit) {
-    // https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons
     Row(modifier = Modifier.padding(all = 8.dp)) {
-        if (sentiment.sentiment == "Bullish") {
-            Icon(Icons.Rounded.ThumbUp, contentDescription = "Bullish", tint = Color.Blue)
+        if (sentiment.sentiment == stringResource(R.string.sentiment_row_bullish)) {
+            Icon(Icons.Rounded.ThumbUp, contentDescription = stringResource(R.string.sentiment_row_bullish), tint = Color.Blue)
         } else {
-            Icon(Icons.Rounded.ThumbDown, contentDescription = "Bearish", tint = Color.Red)
+            Icon(Icons.Rounded.ThumbDown, contentDescription = stringResource(R.string.sentiment_row_bearish), tint = Color.Red)
         }
         Spacer(modifier = Modifier.width(8.dp))
         Column(modifier = Modifier
@@ -48,19 +48,19 @@ fun SentimentRow(sentiment: Sentiment, clickListener: (Sentiment) -> Unit) {
             ) {
                 Column {
                     Text(
-                        text = "Sentiment: ${sentiment.sentiment}",
+                        text = stringResource(R.string.sentiment_row_sentiment, sentiment.sentiment),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2
                     )
 
                     Text(
-                        text = "Number of Comments: ${sentiment.no_of_comments}",
+                        text = stringResource(R.string.sentiment_row_comments, sentiment.no_of_comments),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2
                     )
 
                     Text(
-                        text = "Sentiment Score: ${sentiment.sentiment_score}",
+                        text = stringResource(R.string.sentiment_row_score, sentiment.sentiment_score),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2
                     )

@@ -13,13 +13,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.marketapp.R
 import com.example.marketapp.data.AnnualReport
 
 @Composable
 fun AnnualReportRow(annualReport: AnnualReport, clickListener: (AnnualReport) -> Unit) {
-    // https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons
     Row {
         var isExpanded by remember { mutableStateOf(false) }
         Surface(
@@ -38,14 +39,14 @@ fun AnnualReportRow(annualReport: AnnualReport, clickListener: (AnnualReport) ->
                 }) {
                 Column {
                     Text(
-                        text = "Net income: ${annualReport.formattedNetIncome} ${annualReport.reportedCurrency}",
+                        text = stringResource(R.string.annual_report_net_income, annualReport.formattedNetIncome, annualReport.reportedCurrency),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2,
                         color = if (annualReport.netIncome.toDouble() < 0) Color.Red else Color.Black
                     )
 
                     Text(
-                        text = "Gross profit: ${annualReport.formattedGrossProfit} ${annualReport.reportedCurrency}",
+                        text = stringResource(R.string.annual_report_gross_profit, annualReport.formattedGrossProfit, annualReport.reportedCurrency),
                         modifier = Modifier.padding(all = 4.dp),
                         style = MaterialTheme.typography.body2,
                         color = if (annualReport.grossProfit.toDouble() < 0) Color.Red else Color.Black

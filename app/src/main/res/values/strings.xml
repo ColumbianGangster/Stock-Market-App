@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Market App</string>
+
+<!--    Errors -->
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="close">Close</string>
+    <string name="content_description_close">Close</string>
+
+<!--    App Bar Titles -->
+    <string name="appbar_title_stock_sentiments">Stock Sentiments</string>
+    <string name="appbar_title_stock_details">Stock Details</string>
+
+<!--    Stock Sentiments -->
+    <string name="sentiment_row_bullish">Bullish</string>
+    <string name="sentiment_row_bearish">Bearish</string>
+    <string name="sentiment_row_sentiment">Sentiment: %1$s</string>
+    <string name="sentiment_row_comments">Number of Comments: %1$d</string>
+    <string name="sentiment_row_score">Sentiment Score: %1$f</string>
+
+<!--  Stock Details  -->
+    <string name="stock_company_overview_cta">View Company Overview</string>
+    <string name="annual_report_header">Horizontal Financial Statement Analysis</string>
+    <string name="annual_report_subheader">Detect growth trends across different time periods</string>
+    <string name="annual_report_net_income">Net income: %1$s %2$s</string>
+    <string name="annual_report_gross_profit">Gross profit: %1$s %2$s</string>
+    <string name="stock_name">Name: %1$s</string>
+    <string name="stock_price">Price: %1$f</string>
+    <string name="stock_day_change">Day Change: %1$f</string>
+    <string name="company_overview_description">Description: %1$s</string>
+    <string name="company_overview_country">Country: %1$s</string>
+    <string name="company_overview_sector">Sector: %1$s</string>
+    <string name="company_overview_industry">Industry: %1$s</string>
+
+
 </resources>

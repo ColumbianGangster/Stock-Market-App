@@ -8,7 +8,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.marketapp.R
 
 @Composable
 fun MarketTopAppBar(title: String, closeable: Boolean, f: (() -> Unit)? = null) {
@@ -19,7 +21,7 @@ fun MarketTopAppBar(title: String, closeable: Boolean, f: (() -> Unit)? = null) 
         navigationIcon = if (closeable) {
             {
                 IconButton(onClick = { f?.invoke() }) {
-                    Icon(Icons.Filled.Close, "")
+                    Icon(Icons.Filled.Close, stringResource(R.string.content_description_close))
                 }
             }
         } else null,

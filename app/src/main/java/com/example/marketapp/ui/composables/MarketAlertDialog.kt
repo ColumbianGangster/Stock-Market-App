@@ -9,6 +9,8 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.marketapp.R
 
 @Composable
 fun MarketAlertDialog(throwable: Throwable, retry: () -> Unit, dismiss: () -> Unit) {
@@ -27,7 +29,7 @@ fun ErrorAlertDialog(exception: Throwable, retry: () -> Unit, dismiss: () -> Uni
         onDismissRequest = {
         },
         title = {
-            Text("Something went wrong")
+            Text(stringResource(R.string.something_went_wrong))
         },
         confirmButton = {
             TextButton(
@@ -35,7 +37,7 @@ fun ErrorAlertDialog(exception: Throwable, retry: () -> Unit, dismiss: () -> Uni
                     retry.invoke()
                 },
             ) {
-                Text("Retry")
+                Text(stringResource(R.string.retry))
             }
         },
         dismissButton = {
@@ -44,7 +46,7 @@ fun ErrorAlertDialog(exception: Throwable, retry: () -> Unit, dismiss: () -> Uni
                     dismiss.invoke()
                 },
             ) {
-                Text("Close")
+                Text(stringResource(R.string.close))
             }
         },
         text = {
