@@ -2,6 +2,7 @@ package com.example.marketapp.domain
 
 import com.example.marketapp.data.*
 import com.google.gson.Gson
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.supervisorScope
 
@@ -36,35 +37,32 @@ class GetStockDetailsUseCaseImpl(
 
         return@supervisorScope DomainStockDetails(
             ticker = ticker,
-            stock = if (cachedStock.isNullOrEmpty()) {
-                stock?.await()
-                    .also {
-                        storageRepository.write(
-                            Gson().toJson(it),
-                            ticker + StorageRepository.STOCK_FILENAME
-                        )
-                    }
-            } else Gson().fromJson(cachedStock, Stock::class.java),
-
-            incomeStatement = if (cachedIncomeStatement.isNullOrEmpty()) {
-                incomeStatementMapper.map(incomeStatement?.await())
-                    .also {
-                        storageRepository.write(
-                            Gson().toJson(it),
-                            ticker + StorageRepository.INCOME_STATEMENT_FILENAME
-                        )
-                    }
-            } else Gson().fromJson(cachedIncomeStatement, IncomeStatement::class.java),
-
-            companyOverview = if (cachedCompanyOverview.isNullOrEmpty()) {
-                companyOverview?.await()
-                    .also {
-                        storageRepository.write(
-                            Gson().toJson(it),
-                            ticker + StorageRepository.COMPANY_OVERVIEW_FILENAME
-                        )
-                    }
-            } else Gson().fromJson(cachedCompanyOverview, CompanyOverview::class.java),
+            stock = cachedStock.useCacheOrApi(
+                deferred = stock,
+                fileName = ticker + StorageRepository.STOCK_FILENAME,
+                mapper = { it }
+            ),
+            incomeStatement = cachedIncomeStatement.useCacheOrApi(
+                deferred = incomeStatement,
+                fileName = ticker + StorageRepository.INCOME_STATEMENT_FILENAME,
+                mapper = { incomeStatementMapper.map(it) }
+            ),
+            companyOverview = cachedCompanyOverview.useCacheOrApi(
+                deferred = companyOverview,
+                fileName = ticker + StorageRepository.COMPANY_OVERVIEW_FILENAME,
+                mapper = { it }
+            ),
         )
     }
+
+    private suspend inline fun <reified T> String?.useCacheOrApi(deferred: Deferred<T>?, fileName: String, mapper: (T?) -> T?): T? =
+        if (isNullOrEmpty()) {
+            mapper.invoke(deferred?.await())
+                .also {
+                    storageRepository.write(
+                        Gson().toJson(it),
+                        fileName
+                    )
+                }
+        } else Gson().fromJson(this, T::class.java)
 }
