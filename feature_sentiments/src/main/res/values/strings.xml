@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="appbar_title_stock_sentiments">Stock Sentiments</string>
+
+    <string name="sentiment_row_bullish">Bullish</string>
+    <string name="sentiment_row_bearish">Bearish</string>
+    <string name="sentiment_row_sentiment">Sentiment: %1$s</string>
+    <string name="sentiment_row_comments">Number of Comments: %1$d</string>
+    <string name="sentiment_row_score">Sentiment Score: %1$f</string>
+</resources>

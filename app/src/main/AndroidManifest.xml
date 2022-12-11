@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.marketapp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApplication"
@@ -13,22 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarketApp">
         <activity
-            android:name=".ui.sentiments.SentimentsActivity"
+            android:name="com.dowpro.marketapp.ui.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MarketApp.NoActionBar">
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.MarketApp">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".ui.stockdetails.StockDetailsActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MarketApp.NoActionBar" />
     </application>
 
 </manifest>

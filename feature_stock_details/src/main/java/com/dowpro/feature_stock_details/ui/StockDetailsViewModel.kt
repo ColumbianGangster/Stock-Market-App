@@ -1,0 +1,37 @@
+package com.dowpro.feature_stock_details.ui
+
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.dowpro.feature_stock_details.domain.DomainStockDetails
+import com.dowpro.feature_stock_details.domain.GetStockDetailsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class StockViewModel @Inject constructor(private val useCase: GetStockDetailsUseCase) : ViewModel() {
+
+    val mutableLiveData = MutableLiveData<StockUiState>()
+
+    fun getStock(ticker: String) {
+        mutableLiveData.value = StockUiState.Loading(true)
+        viewModelScope.launch {
+            try {
+                val result = useCase.execute(ticker)
+                mutableLiveData.value = StockUiState.Success(result)
+                delay(500)
+            } catch (exception: Exception) {
+                mutableLiveData.value = StockUiState.Error(exception)
+            }
+            mutableLiveData.value = StockUiState.Loading(false)
+        }
+    }
+}
+
+sealed class StockUiState {
+    data class Loading(val isLoading: Boolean): StockUiState()
+    data class Success(val domainStockDetails: DomainStockDetails): StockUiState()
+    data class Error(val exception: Throwable): StockUiState()
+}

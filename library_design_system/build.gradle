@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.dowpro.library_design_system'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // compose - follow approach taken in https://developer.android.com/jetpack/compose/setup
+    // sadly some libraries are not in the BOM, and there are compatibility issues with Kotlin Gradle Plugin, Hilt and Compose
+    def composeBom = platform('androidx.compose:compose-bom:2022.10.00')
+    api composeBom
+    androidTestApi composeBom
+    // Material Design 3
+    api 'androidx.compose.material3:material3'
+
+    // Android Studio Preview support
+    api 'androidx.compose.ui:ui-tooling-preview'
+    debugApi 'androidx.compose.ui:ui-tooling'
+
+    // UI Tests
+    androidTestApi 'androidx.compose.ui:ui-test-junit4'
+    debugApi 'androidx.compose.ui:ui-test-manifest'
+
+    // Optional - Included automatically by material, only add when you need
+    // the icons but not the material library (e.g. when using Material3 or a
+    // custom design system based on Foundation)
+    api 'androidx.compose.material:material-icons-core'
+    // Optional - Add full set of material icons
+    api 'androidx.compose.material:material-icons-extended'
+    // Optional - Add window size utils
+    api 'androidx.compose.material3:material3-window-size-class'
+
+    // Optional - Integration with activities
+    api 'androidx.activity:activity-compose:1.6.1'
+    // Optional - Integration with ViewModels
+    api 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
+    // Optional - Integration with LiveData
+    api 'androidx.compose.runtime:runtime-livedata'
+
+    // Accompanist
+    // :warning: Ensure you are using the Accompanist version that matches with your Compose UI version:
+    // If you upgrade Accompanist, it will upgrade your Compose libraries version via transitive dependencies.
+    api "com.google.accompanist:accompanist-pager:0.28.0" // Pager
+    api "com.google.accompanist:accompanist-pager-indicators:0.28.0" // Pager Indicators
+}

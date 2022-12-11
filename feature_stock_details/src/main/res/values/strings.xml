@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="appbar_title_stock_details">Stock Details</string>
+
+    <string name="stock_company_overview_cta">View Company Overview</string>
+    <string name="annual_report_header">Horizontal Financial Statement Analysis</string>
+    <string name="annual_report_subheader">Detect growth trends across different time periods</string>
+    <string name="annual_report_net_income">Net income: %1$s %2$s</string>
+    <string name="annual_report_gross_profit">Gross profit: %1$s %2$s</string>
+    <string name="stock_name">Name: %1$s</string>
+    <string name="stock_price">Price: %1$f</string>
+    <string name="stock_day_change">Day Change: %1$f</string>
+    <string name="company_overview_description">Description: %1$s</string>
+    <string name="company_overview_country">Country: %1$s</string>
+    <string name="company_overview_sector">Sector: %1$s</string>
+    <string name="company_overview_industry">Industry: %1$s</string>
+</resources>
