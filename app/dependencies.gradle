@@ -11,6 +11,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation "androidx.multidex:multidex:$multidex_version"
 
+    // 2.0.0 not supported, as "Unsupported desugared library configuration version, please upgrade the D8/R8 compiler." Android Gradle Plugin would need to be 7.4.0-alpha10
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
