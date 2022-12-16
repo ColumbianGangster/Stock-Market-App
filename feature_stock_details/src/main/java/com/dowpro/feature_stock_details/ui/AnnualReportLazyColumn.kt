@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dowpro.feature_stock_details.R
+import com.dowpro.library_design_system.composables.spaces.SmallSpacer
 
 @Composable
 fun AnnualReportLazyColumn(
@@ -28,7 +29,7 @@ fun AnnualReportLazyColumn(
         Text(
             text = stringResource(R.string.annual_report_subheader),
         )
-        Spacer(modifier = Modifier.height(4.dp))
+        SmallSpacer()
         LazyColumn {
             items(annualReports) { annualReport ->
                 AnnualReportRow(annualReport, clickListener)

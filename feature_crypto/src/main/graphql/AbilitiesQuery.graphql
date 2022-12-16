@@ -1,0 +1,9 @@
+query AbilitiesQuery {
+  abilities {
+    count
+    ability: results {
+      url
+      name
+    }
+  }
+}

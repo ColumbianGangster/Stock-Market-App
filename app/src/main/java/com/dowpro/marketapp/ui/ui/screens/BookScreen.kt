@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun BooksScreen() {
+fun JourneysScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -36,5 +36,5 @@ fun BooksScreen() {
 @Preview(showBackground = true)
 @Composable
 fun BooksScreenPreview() {
-    BooksScreen()
+    JourneysScreen()
 }

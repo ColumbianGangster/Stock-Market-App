@@ -1,0 +1,58 @@
+type Abilities {
+    count: Int!
+    results: [Ability!]!
+}
+
+type Ability {
+    url: String!
+    name: String!
+}
+
+type Pokemons {
+    count: String!
+    status: Boolean!
+    results: [Pokemon!]!
+}
+
+type Pokemon {
+    url: String!
+    name: String!
+    image: String!
+}
+
+"""
+An RFC-3339 compliant Full Date Scalar
+"""
+scalar Date
+scalar DateTime
+
+enum ErrorDetail {
+    UNKNOWN
+    FIELD_NOT_FOUND
+    INVALID_CURSOR
+    UNIMPLEMENTED
+    INVALID_ARGUMENT
+    DEADLINE_EXCEEDED
+    SERVICE_ERROR
+    THROTTLED_CPU
+    THROTTLED_CONCURRENCY
+    ENHANCE_YOUR_CALM
+    TCP_FAILURE
+    MISSING_RESOURCE
+}
+
+enum ErrorType {
+    UNKNOWN
+    INTERNAL
+    NOT_FOUND
+    UNAUTHENTICATED
+    PERMISSION_DENIED
+    BAD_REQUEST
+    UNAVAILABLE
+    FAILED_PRECONDITION
+}
+
+type Query {
+    abilities: Abilities
+    pokemons: Pokemons
+}

@@ -1,0 +1,14 @@
+android {
+    sourceSets {
+        red {
+            java.srcDirs += []
+        }
+        testRed {
+
+        }
+    }
+}
+
+dependencies {
+    redImplementation project(path: ':feature_red')
+}

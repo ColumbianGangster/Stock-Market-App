@@ -1,5 +1,7 @@
 package com.dowpro.feature_stock_details.ui
 
+import androidx.compose.runtime.Immutable
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,25 +15,33 @@ import javax.inject.Inject
 @HiltViewModel
 class StockViewModel @Inject constructor(private val useCase: GetStockDetailsUseCase) : ViewModel() {
 
-    val mutableLiveData = MutableLiveData<StockUiState>()
+    private val _screenState = MutableLiveData(StockUiState())
+    val screenState: LiveData<StockUiState>
+        get() = _screenState
 
     fun getStock(ticker: String) {
-        mutableLiveData.value = StockUiState.Loading(true)
         viewModelScope.launch {
             try {
+                _screenState.value = StockUiState(screenState = UiState.LOADING, domainStockDetails = null, exception = null)
                 val result = useCase.execute(ticker)
-                mutableLiveData.value = StockUiState.Success(result)
+                _screenState.value = StockUiState(screenState = UiState.SUCCESS, domainStockDetails = result, exception = null)
                 delay(500)
             } catch (exception: Exception) {
-                mutableLiveData.value = StockUiState.Error(exception)
+                _screenState.value = StockUiState(screenState = UiState.ERROR, domainStockDetails = null, exception = exception)
             }
-            mutableLiveData.value = StockUiState.Loading(false)
         }
     }
 }
 
-sealed class StockUiState {
-    data class Loading(val isLoading: Boolean): StockUiState()
-    data class Success(val domainStockDetails: DomainStockDetails): StockUiState()
-    data class Error(val exception: Throwable): StockUiState()
+sealed class UiState {
+    object LOADING: UiState()
+    object SUCCESS: UiState()
+    object ERROR: UiState()
 }
+
+@Immutable
+data class StockUiState(
+    val screenState: UiState = UiState.LOADING,
+    val domainStockDetails: DomainStockDetails? = null,
+    val exception: Throwable? = null
+)

@@ -8,7 +8,7 @@ import androidx.compose.ui.res.stringResource
 import com.dowpro.library_design_system.R
 
 @Composable
-fun ErrorRetryAlertDialog(exception: Throwable, retry: () -> Unit, dismiss: () -> Unit) {
+fun ErrorRetryAlertDialog(exception: Throwable?, retry: () -> Unit, dismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = {
         },
@@ -34,7 +34,7 @@ fun ErrorRetryAlertDialog(exception: Throwable, retry: () -> Unit, dismiss: () -
             }
         },
         text = {
-            Text(exception.message.toString())
+            Text(exception?.message?: "Unknown error")
         },
     )
 }

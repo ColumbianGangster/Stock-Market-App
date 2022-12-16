@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
 
 @Composable
 fun MoviesScreen() {
@@ -22,14 +23,9 @@ fun MoviesScreen() {
             .background(Color.White)
             .wrapContentSize(Alignment.Center)
     ) {
-        Text(
-            text = "Movies View",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 25.sp
-        )
+        PrimaryRoundedButton("Pokemon List") {
+
+        }
     }
 }
 

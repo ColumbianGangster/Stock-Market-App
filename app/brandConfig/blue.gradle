@@ -1,0 +1,14 @@
+android {
+    sourceSets {
+        blue {
+            java.srcDirs += []
+        }
+        testBlue {
+
+        }
+    }
+}
+
+dependencies {
+    blueImplementation project(path: ':feature_blue')
+}

@@ -8,7 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MarketAlertDialog(throwable: Throwable, retry: () -> Unit, dismiss: () -> Unit) {
+fun MarketAlertDialog(throwable: Throwable?, retry: () -> Unit, dismiss: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,

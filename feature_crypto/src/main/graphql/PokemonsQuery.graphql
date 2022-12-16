@@ -1,0 +1,11 @@
+query PokemonsQuery {
+  pokemons {
+    count
+    status
+    pokemon: results {
+      url
+      name
+      image
+    }
+  }
+}

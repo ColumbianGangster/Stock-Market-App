@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
 import com.dowpro.library_design_system.theme.PaddingTheme
 import com.dowpro.library_design_system.theme.Typography
 import com.dowpro.marketapp.domain.DateMapper
@@ -270,14 +271,8 @@ fun ColumnScope.Buttons(isEnabled: Boolean) {
         Spacer(Modifier.size(ButtonDefaults.IconSpacing))
         Text("I'm an Icon Button".uppercase())
     }
+    PrimaryRoundedButton(text = "I'm an Rounded Button", isEnabled = isEnabled, {})
 
-    Button(onClick = { /* Do something! */ },
-        shape = RoundedCornerShape(50),
-        modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
-        enabled = isEnabled,
-    ) {
-        Text("I'm a Rounded Button".uppercase())
-    }
     OutlinedButton(onClick = { /* Do something! */ },
         modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
         enabled = isEnabled,

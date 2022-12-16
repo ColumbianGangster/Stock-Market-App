@@ -1,11 +1,15 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    // kotlin-parcelize
+    // osslicences plugin
+    // version matcher plugin
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 }
 
 apply from: 'dependencies.gradle'
+apply from: 'brands.gradle'
 
 android {
     compileSdk 33
@@ -18,9 +22,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
+        vectorDrawables.useSupportLibrary true
     }
 
     buildTypes {
@@ -31,6 +33,36 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // App Bundle Support
+    bundle {
+        density {
+            enableSplit true
+        }
+        abi {
+            enableSplit true
+        }
+        language {
+            enableSplit true
+        }
+    }
+
+    flavorDimensions "brand"
+    productFlavors {
+        red {
+            dimension "brand"
+            applicationId "com.dowpro.marketapp.red"
+            buildConfigField "String", "APP_NAME", 'Red'
+            manifestPlaceholders.brandName = 'red'
+        }
+
+        blue {
+            dimension "brand"
+            applicationId "com.dowpro.marketapp.blue"
+            buildConfigField "String", "APP_NAME", 'Blue'
+            manifestPlaceholders.brandName = 'blue'
         }
     }
     compileOptions {

@@ -44,6 +44,10 @@ android {
 dependencies {
     implementation project(path: ':library_network')
     implementation project(path: ':library_design_system')
+    testImplementation project(path: ':library_core_testing')
+    androidTestImplementation project(path: ':library_core_testing')
+
+
     def multidex_version = "2.0.1"
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'

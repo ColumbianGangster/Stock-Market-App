@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.dowpro.library_design_system.composables.spaces.SmallSpacer
 
 @Composable
 fun SentimentRow(sentiment: com.dowpro.library_network.Sentiment, clickListener: (com.dowpro.library_network.Sentiment) -> Unit) {
@@ -34,7 +35,7 @@ fun SentimentRow(sentiment: com.dowpro.library_network.Sentiment, clickListener:
                 style = MaterialTheme.typography.subtitle2
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
+            SmallSpacer()
 
             Surface(
                 shape = MaterialTheme.shapes.medium,

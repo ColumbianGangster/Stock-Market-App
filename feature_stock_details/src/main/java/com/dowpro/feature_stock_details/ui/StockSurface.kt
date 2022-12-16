@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dowpro.feature_stock_details.R
+import com.dowpro.library_design_system.composables.spaces.SmallSpacer
 import com.dowpro.library_network.CompanyOverview
 import com.dowpro.library_network.Stock
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview?) {
     Surface(modifier = Modifier
@@ -27,7 +27,7 @@ fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview
                 color = MaterialTheme.colors.secondaryVariant,
                 style = MaterialTheme.typography.subtitle2
             )
-            Spacer(modifier = Modifier.height(4.dp))
+            SmallSpacer()
 
             Surface(
                 shape = MaterialTheme.shapes.medium,
