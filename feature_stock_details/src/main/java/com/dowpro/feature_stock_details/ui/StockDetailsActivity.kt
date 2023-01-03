@@ -25,7 +25,7 @@ class StockDetailsActivity : ComponentActivity() {
         const val TICKER = "TICKER"
     }
 
-    private val viewModel: StockViewModel by viewModels()
+    private val viewModel: StockDetailsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

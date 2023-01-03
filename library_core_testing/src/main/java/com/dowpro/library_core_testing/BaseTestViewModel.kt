@@ -7,10 +7,13 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.rules.TestRule
 
 @ExperimentalCoroutinesApi
 open class BaseTestViewModel {
+
+    @get:Rule
     val instantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
 
     @Before

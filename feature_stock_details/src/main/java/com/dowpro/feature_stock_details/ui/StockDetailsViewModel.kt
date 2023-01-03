@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class StockViewModel @Inject constructor(private val useCase: GetStockDetailsUseCase) : ViewModel() {
+class StockDetailsViewModel @Inject constructor(private val useCase: GetStockDetailsUseCase) : ViewModel() {
 
     private val _screenState = MutableLiveData(StockUiState())
     val screenState: LiveData<StockUiState>
@@ -22,12 +22,12 @@ class StockViewModel @Inject constructor(private val useCase: GetStockDetailsUse
     fun getStock(ticker: String) {
         viewModelScope.launch {
             try {
-                _screenState.value = StockUiState(screenState = UiState.LOADING, domainStockDetails = null, exception = null)
+                _screenState.value = StockUiState(screenState = UiState.LOADING)
                 val result = useCase.execute(ticker)
-                _screenState.value = StockUiState(screenState = UiState.SUCCESS, domainStockDetails = result, exception = null)
-                delay(500)
+                _screenState.value = StockUiState(screenState = UiState.SUCCESS, domainStockDetails = result)
+                delay(500) // is this needed?
             } catch (exception: Exception) {
-                _screenState.value = StockUiState(screenState = UiState.ERROR, domainStockDetails = null, exception = exception)
+                _screenState.value = StockUiState(screenState = UiState.ERROR, exception = exception)
             }
         }
     }

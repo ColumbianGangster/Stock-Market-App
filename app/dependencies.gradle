@@ -3,6 +3,7 @@ dependencies {
     implementation project(path: ':library_design_system')
     implementation project(path: ':library_graphql')
     implementation project(path: ':library_core')
+    implementation project(path: ':library_core_utils')
     testImplementation project(path: ':library_core_testing')
     androidTestImplementation project(path: ':library_core_testing')
 

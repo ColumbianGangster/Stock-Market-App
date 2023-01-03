@@ -1,4 +1,4 @@
-package com.dowpro.library_core.data
+package com.dowpro.library_core_utils
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -12,5 +12,4 @@ interface DispatcherProvider {
 
 class DefaultDispatchers : DispatcherProvider
 
-abstract class Repository(dispatchers: DefaultDispatchers)
 

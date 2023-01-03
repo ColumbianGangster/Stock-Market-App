@@ -23,6 +23,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary true
+        manifestPlaceholders.put("deeplinkUrl", "dowpro.market.com")
     }
 
     buildTypes {

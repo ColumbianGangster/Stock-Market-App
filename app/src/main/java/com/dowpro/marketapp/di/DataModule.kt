@@ -3,8 +3,8 @@ package com.dowpro.marketapp.di
 import android.content.Context
 import com.dowpro.feature_crypto.data.PokemonRepository
 import com.dowpro.feature_crypto.data.PokemonRepositoryImpl
-import com.dowpro.library_core.data.DefaultDispatchers
-import com.dowpro.library_core.data.DispatcherProvider
+import com.dowpro.library_core_utils.DefaultDispatchers
+import com.dowpro.library_core_utils.DispatcherProvider
 import com.dowpro.library_graphql.GraphQLClientProvider
 import com.dowpro.library_graphql.GraphQLClientProviderImpl
 import com.dowpro.library_graphql.TokenContainer
