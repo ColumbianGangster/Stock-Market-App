@@ -272,7 +272,7 @@ fun ColumnScope.Buttons(isEnabled: Boolean) {
         Spacer(Modifier.size(ButtonDefaults.IconSpacing))
         Text("I'm an Icon Button".uppercase())
     }
-    PrimaryRoundedButton(text = "I'm an Rounded Button", isEnabled = isEnabled, {})
+    PrimaryRoundedButton(text = "I'm an Rounded Button", modifier = Modifier, isEnabled = isEnabled, {})
 
     OutlinedButton(onClick = { /* Do something! */ },
         modifier = MyModifier(),
