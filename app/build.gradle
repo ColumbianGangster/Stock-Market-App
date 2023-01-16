@@ -55,14 +55,14 @@ android {
         red {
             dimension "brand"
             applicationId "com.dowpro.marketapp.red"
-            buildConfigField "String", "APP_NAME", 'Red'
+            buildConfigField "String", "APP_NAME", '"Red"'
             manifestPlaceholders.brandName = 'red'
         }
 
         blue {
             dimension "brand"
             applicationId "com.dowpro.marketapp.blue"
-            buildConfigField "String", "APP_NAME", 'Blue'
+            buildConfigField "String", "APP_NAME", '"Blue"'
             manifestPlaceholders.brandName = 'blue'
         }
     }
@@ -81,11 +81,10 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.31'
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            pickFirst 'META-INF/*'
         }
     }
     namespace 'com.dowpro.marketapp'

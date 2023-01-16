@@ -1,23 +1,23 @@
 package com.dowpro.marketapp.ui.ui.tabs
 
+import androidx.compose.runtime.Composable
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerState
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.LeadingIconTab
 import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.pagerTabIndicatorOffset
-import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
+fun Tabs(tabs: List<HomeTabItem>, pagerState: PagerState) {
     val scope = rememberCoroutineScope()
     // OR ScrollableTabRow()
     TabRow(
@@ -46,14 +46,9 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
 }
 
 @OptIn(ExperimentalPagerApi::class)
-@Preview(showBackground = true)
 @Composable
-fun TabsPreview() {
-    val tabs = listOf(
-        TabItem.Design,
-        TabItem.Movies,
-        TabItem.Books
-    )
-    val pagerState = rememberPagerState()
-    Tabs(tabs = tabs, pagerState = pagerState)
+fun TabsHorizontalPager(tabs: List<HomeTabItem>, pagerState: PagerState) {
+    HorizontalPager(state = pagerState, count = tabs.size) { page ->
+        tabs[page].screen()
+    }
 }

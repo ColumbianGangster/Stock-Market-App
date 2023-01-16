@@ -1,6 +1,6 @@
 package com.dowpro.library_core_testing
 
-import com.dowpro.library_core.data.DispatcherProvider
+import com.dowpro.library_core_utils.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

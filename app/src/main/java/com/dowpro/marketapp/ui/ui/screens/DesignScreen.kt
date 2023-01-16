@@ -19,7 +19,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dowpro.library_design_system.composables.buttons.PrimaryButton
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
+import com.dowpro.library_design_system.composables.spaces.MyModifier
 import com.dowpro.library_design_system.theme.PaddingTheme
 import com.dowpro.library_design_system.theme.Typography
 import com.dowpro.marketapp.domain.DateMapper
@@ -34,9 +36,10 @@ import java.util.*
 /*
   .verticalScroll(rememberScrollState()) is a compose/gesture.
  */
-fun DesignScreen() {
+fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
     Column(
         modifier = Modifier
+            .padding(paddingValues)
             .fillMaxSize()
             .background(Color.White)
             .verticalScroll(rememberScrollState())
@@ -252,15 +255,13 @@ fun String.convertFormat(formatA: String, formatB: String): String {
  It needs to be an extension function of ColumnScope for .align(Alignment.CenterHorizontally).
  */
 fun ColumnScope.Buttons(isEnabled: Boolean) {
-    Button(onClick = { /* Do something! */ },
-        modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
+    PrimaryButton(text = "I'm a Button",
+        onClick = { /* Do something! */ },
         enabled = isEnabled,
-    ) {
-        Text("I'm a Button".uppercase())
-    }
+    )
 
     Button(onClick = { /* Do something! */ },
-        modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
+        modifier = MyModifier(),
         enabled = isEnabled,
     ) {
         Icon(
@@ -274,13 +275,13 @@ fun ColumnScope.Buttons(isEnabled: Boolean) {
     PrimaryRoundedButton(text = "I'm an Rounded Button", isEnabled = isEnabled, {})
 
     OutlinedButton(onClick = { /* Do something! */ },
-        modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
+        modifier = MyModifier(),
         enabled = isEnabled,
     ) {
         Text("I'm an Outlined Button".uppercase())
     }
     OutlinedButton(onClick = { /* Do something! */ },
-        modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
+        modifier = MyModifier(),
         enabled = isEnabled,
     ) {
         Icon(
@@ -294,7 +295,7 @@ fun ColumnScope.Buttons(isEnabled: Boolean) {
 
     OutlinedButton(onClick = { /* Do something! */ },
         shape = RoundedCornerShape(50),
-        modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
+        modifier = MyModifier(),
         enabled = isEnabled,
     ) {
         Text("I'm an Rounded Outlined Button".uppercase())
@@ -309,7 +310,7 @@ fun ColumnScope.Buttons(isEnabled: Boolean) {
     }
 
     TextButton(onClick = { /* Do something! */ },
-        modifier = Modifier.fillMaxWidth().padding(PaddingTheme),
+        modifier = MyModifier(),
         enabled = isEnabled,
     ) {
         Text("I'm a text button".split(" ").joinToString(" ") { w -> w.replaceFirstChar { c ->  c.uppercaseChar() } })

@@ -5,5 +5,7 @@
     <string name="retry">Retry</string>
     <string name="close">Close</string>
     <string name="content_description_close">Close</string>
+    <string name="navigate_back">Back</string>
+    <string name="navigate_about">About</string>
 
 </resources>

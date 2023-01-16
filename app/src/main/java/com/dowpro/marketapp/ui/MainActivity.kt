@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.dowpro.library_design_system.composables.other.MarketTopAppBar
 import com.dowpro.marketapp.R
-import com.dowpro.marketapp.ui.ui.tabs.TabItem
+import com.dowpro.marketapp.ui.ui.tabs.HomeTabItem
 import com.dowpro.marketapp.ui.ui.tabs.Tabs
 import com.dowpro.marketapp.ui.ui.tabs.TabsHorizontalPager
 import com.dowpro.marketapp.ui.ui.theme.MarketAppTheme
@@ -33,12 +33,12 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun MainScreen() {
-    val tabs = listOf(TabItem.Design, TabItem.Movies, TabItem.Books)
     val pagerState = rememberPagerState()
     Scaffold(
         topBar = { MarketTopAppBar(stringResource(R.string.appbar_title_main), false) },
     ) { padding ->
         Column(modifier = Modifier.padding(padding)) {
+            val tabs = listOf(HomeTabItem.Design(padding), HomeTabItem.Movies(padding), HomeTabItem.Journeys(padding))
             Tabs(tabs = tabs, pagerState = pagerState)
             TabsHorizontalPager(tabs = tabs, pagerState = pagerState)
         }

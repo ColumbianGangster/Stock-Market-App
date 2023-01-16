@@ -1,5 +1,6 @@
 package com.dowpro.library_design_system.composables.other
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,13 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.dowpro.library_design_system.R
 
 
 // https://proandroiddev.com/creating-a-collapsing-topappbar-with-jetpack-compose-d25ad19d6113
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CollapsingToolbarScaffold() {
+fun CollapsingToolbarScaffold(navController: NavHostController, title: String, content: @Composable (PaddingValues) -> Unit) {
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
     val isCollapsed = remember { derivedStateOf { scrollBehavior.state.collapsedFraction > 0.5 } }
 
@@ -37,7 +39,7 @@ fun CollapsingToolbarScaffold() {
     Scaffold(
         topBar = {
             LargeTopAppBar(
-                title = { Text(text = stringResource(id = R.string.title), fontSize = topAppBarTextSize) },
+                title = { Text(text = title, fontSize = topAppBarTextSize) },
                 navigationIcon = { NavigationIcon(navController = navController)},
                 actions = { AboutActionIcon(navController) },
                 scrollBehavior = scrollBehavior,
@@ -52,16 +54,6 @@ fun CollapsingToolbarScaffold() {
         },
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
     ) { innerPadding ->
-        LazyColumn(modifier = Modifier
-            .fillMaxSize()
-            .padding(innerPadding)) {
-            items(items) { item ->
-                Text(
-                    text = stringResource(id = R.string.item_text, item),
-                    style = MaterialTheme.typography.headlineMedium,
-                    modifier = Modifier.padding(Dimen.spacing)
-                )
-            }
-        }
+        content(innerPadding)
     }
 }
