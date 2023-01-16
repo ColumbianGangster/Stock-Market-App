@@ -1,9 +1,12 @@
 package com.dowpro.marketapp.ui.ui.screens
 
+import android.content.Intent
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.dowpro.feature_red.*
 import com.dowpro.library_design_system.composables.buttons.PrimaryButton
 import com.dowpro.library_design_system.composables.text.PrimaryText
 
@@ -14,15 +17,25 @@ fun JourneysScreen(padding: PaddingValues = PaddingValues()) {
             .padding(padding)
             .fillMaxSize()
     ) {
+        val context = LocalContext.current
         PrimaryText(text = "When buttons are stacked you should use square buttons")
-        PrimaryButton(text = "Dynamic List Screen") {
-
+        PrimaryButton(text = "Simple Lazy Column Screen") {
+            context.startActivity(Intent(context, RedListActivity::class.java))
         }
-        PrimaryButton(text = "Detail Screen") {
-
+        PrimaryButton(text = "Simple Lazy Row Screen") {
+            context.startActivity(Intent(context, RedRowActivity::class.java))
+        }
+        PrimaryButton(text = "Async Image Lazy Column Screen") {
+            context.startActivity(Intent(context, RedAsyncImageColumnActivity::class.java))
+        }
+        PrimaryButton(text = "Sticky Button List Screen") {
+            context.startActivity(Intent(context, RedStickyButtonListActivity::class.java))
+        }
+        PrimaryButton(text = "Pager Screen") {
+            context.startActivity(Intent(context, RedPagerActivity::class.java))
         }
         PrimaryButton(text = "Collapsing Toolbar Screen") {
-
+            context.startActivity(Intent(context, RedStickyButtonListActivity::class.java))
         }
     }
 }

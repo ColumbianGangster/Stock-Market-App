@@ -10,6 +10,7 @@ import androidx.compose.ui.res.stringResource
 import com.dowpro.library_design_system.composables.dialogs.MarketAlertDialog
 import com.dowpro.library_design_system.composables.loading.LoadingSurface
 import com.dowpro.library_design_system.composables.other.MarketTopAppBar
+import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
 import com.dowpro.library_design_system.theme.MarketAppTheme
 import com.dowpro.library_network.Sentiment
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +24,8 @@ class SentimentsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MarketAppTheme {
-                BuildToolbar {
+                MyScaffold(title = R.string.appbar_title_stock_sentiments) {
+
                 }
             }
         }
@@ -45,7 +47,7 @@ class SentimentsActivity : ComponentActivity() {
         if (loading) {
             setContent {
                 MarketAppTheme {
-                    BuildToolbar {
+                    MyScaffold(title = R.string.appbar_title_stock_sentiments) {
                         LoadingSurface()
                     }
                 }
@@ -53,20 +55,10 @@ class SentimentsActivity : ComponentActivity() {
         }
     }
 
-    @Composable
-    private fun BuildToolbar(f: @Composable () -> Unit) {
-        Scaffold(
-            topBar = {
-                MarketTopAppBar(stringResource(R.string.appbar_title_stock_sentiments), false)
-            }, content = {
-                f.invoke()
-            })
-    }
-
     private fun showSentiments(sentiments: List<Sentiment>) {
         setContent {
             MarketAppTheme {
-                BuildToolbar {
+                MyScaffold(title = R.string.appbar_title_stock_sentiments) {
                     SentimentLazyColumn(sentiments) { sentiment ->
 //                        val intent = Intent(this, StockDetailsActivity::class.java).apply {
 //                            putExtra(StockDetailsActivity.TICKER, sentiment.ticker)
@@ -81,7 +73,7 @@ class SentimentsActivity : ComponentActivity() {
     private fun showError(throwable: Throwable) {
         setContent {
             MarketAppTheme {
-                BuildToolbar {
+                MyScaffold(title = R.string.appbar_title_stock_sentiments) {
                     MarketAlertDialog(throwable,
                         {
                             viewModel.getSentiments()

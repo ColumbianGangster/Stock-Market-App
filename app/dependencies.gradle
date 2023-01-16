@@ -36,6 +36,9 @@ dependencies {
     // fragments
     implementation "androidx.fragment:fragment-ktx:$fragments_version"
 
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+
     // dagger
     implementation 'com.google.dagger:hilt-android:2.44.2'
     kapt 'com.google.dagger:hilt-compiler:2.44.2'

@@ -8,4 +8,6 @@
     <string name="navigate_back">Back</string>
     <string name="navigate_about">About</string>
 
+    <string name="placeholder">Placeholder</string>
+
 </resources>

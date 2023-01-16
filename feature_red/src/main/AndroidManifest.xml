@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity
+            android:name=".RedListActivity" />
 
+        <activity
+            android:name=".RedRowActivity" />
+
+        <activity
+            android:name=".RedAsyncImageColumnActivity" />
+
+        <activity
+            android:name=".RedStickyButtonListActivity" />
+
+        <activity
+            android:name=".RedPagerActivity" />
+    </application>
 </manifest>

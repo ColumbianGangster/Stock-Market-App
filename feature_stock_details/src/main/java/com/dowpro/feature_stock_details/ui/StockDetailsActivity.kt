@@ -58,9 +58,7 @@ class StockDetailsActivity : ComponentActivity() {
     fun MarketScaffold(f: @Composable (PaddingValues) -> Unit) {
         Scaffold(
             topBar = {
-                MarketTopAppBar(stringResource(R.string.appbar_title_stock_details), true) {
-                    finish()
-                }
+                MarketTopAppBar(stringResource(R.string.appbar_title_stock_details), true)
             }, content = {
                 f.invoke(it)
             })
