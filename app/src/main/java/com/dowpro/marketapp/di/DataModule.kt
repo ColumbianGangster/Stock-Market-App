@@ -27,9 +27,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-// https://www.zacsweers.dev/dagger-party-tricks-private-dependencies/
-
-
+// Future research: https://www.zacsweers.dev/dagger-party-tricks-private-dependencies/
 
 @Module
 @InstallIn(SingletonComponent::class)

@@ -17,6 +17,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.dowpro.library_design_system.composables.spaces.LargeSpacer
 import com.dowpro.library_design_system.theme.Typography
 
 data class AsyncImageCardContent(val url: String, val contentDescription: Int, val title: String, val body: String, val online: Boolean)
@@ -27,8 +28,10 @@ fun AsyncImageLazyColumn(contents: List<AsyncImageCardContent>) {
         items(contents) { content ->
             AsyncImageCard(content)
         }
+        item {
+            LargeSpacer()
+        }
     }
-    Spacer(Modifier.size(90.dp))
 }
 
 @Composable
@@ -65,7 +68,8 @@ fun AsyncImageCard(content: AsyncImageCardContent) {
                     blendMode = BlendMode.Clear
                 )
                 drawCircle(
-                    Color(if(content.online) Color.Green.toArgb() else Color.Red.toArgb()), radius = dotSize * 0.8f,
+                    Color(if (content.online) Color.Green.toArgb() else Color.Red.toArgb()),
+                    radius = dotSize * 0.8f,
                     center = Offset(
                         x = size.width - dotSize,
                         y = size.height - dotSize

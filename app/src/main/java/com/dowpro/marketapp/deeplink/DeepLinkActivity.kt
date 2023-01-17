@@ -6,9 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import com.dowpro.feature_crypto.PokemonsActivity
 import com.dowpro.feature_sentiments.SentimentsActivity
-import com.dowpro.feature_stock_details.ui.StockDetailsActivity
 
 class DeepLinkActivity: ComponentActivity() {
 
@@ -44,37 +42,12 @@ class DeepLinkActivity: ComponentActivity() {
     private fun handleDeeplinkUrl() {
         when {
             url.contains("/sentiments") -> navigateToSentiments()
-            url.contains("/stock-details") -> navigateToStockDetails()
-            url.contains("/pokemons") -> navigateToPokemons()
-            url.contains("/red") -> navigateToRed()
-            url.contains("/blue") -> navigateToBlue()
             else -> navigateToSplash()
         }
     }
 
-    private fun navigateToRed() {
-        val intent = Intent(this, PokemonsActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun navigateToBlue() {
-        val intent = Intent(this, PokemonsActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun navigateToPokemons() {
-        val intent = Intent(this, PokemonsActivity::class.java)
-        startActivity(intent)
-    }
-
     private fun navigateToSplash() {
-//        val intent = Intent(this, SplashActivity::class.java)
-//        startActivity(intent)
-    }
 
-    private fun navigateToStockDetails() {
-        val intent = Intent(this, StockDetailsActivity::class.java)
-        startActivity(intent)
     }
 
     private fun navigateToSentiments() {

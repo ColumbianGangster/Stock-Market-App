@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dowpro.feature_stock_details.R
-import com.dowpro.library_design_system.composables.spaces.SmallSpacer
+import com.dowpro.library_design_system.composables.spaces.VerySmallSpacer
 import com.dowpro.library_network.CompanyOverview
 import com.dowpro.library_network.Stock
 
@@ -27,7 +27,7 @@ fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview
                 color = MaterialTheme.colors.secondaryVariant,
                 style = MaterialTheme.typography.subtitle2
             )
-            SmallSpacer()
+            VerySmallSpacer()
 
             Surface(
                 shape = MaterialTheme.shapes.medium,

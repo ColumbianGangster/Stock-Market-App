@@ -20,6 +20,7 @@ import com.dowpro.library_design_system.composables.buttons.PrimaryButton
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
 import com.dowpro.library_design_system.composables.cards.*
 import com.dowpro.library_design_system.composables.scaffolds.MyStickyNoToolbarScaffold
+import com.dowpro.library_design_system.composables.spaces.LargeSpacer
 import com.dowpro.library_design_system.composables.text.PrimaryText
 
 @Composable
@@ -66,7 +67,7 @@ fun FeatureScreen(paddingValues: PaddingValues = PaddingValues()) {
                     SimpleTextCard(content)
                 }
                 item {
-                    Spacer(Modifier.size(90.dp))
+                    LargeSpacer()
                 }
             }
         },

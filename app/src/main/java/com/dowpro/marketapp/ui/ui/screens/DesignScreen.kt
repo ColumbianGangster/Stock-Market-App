@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dowpro.library_design_system.composables.buttons.PrimaryButton
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
+import com.dowpro.library_design_system.composables.spaces.LargeSpacer
 import com.dowpro.library_design_system.composables.spaces.MyModifier
 import com.dowpro.library_design_system.theme.PaddingTheme
 import com.dowpro.library_design_system.theme.Typography
@@ -80,39 +81,51 @@ fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
         )
         Text(
             text = "Typography.subtitle1",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.subtitle1,
         )
 
         Text(
             text = "Typography.subtitle2",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.subtitle2,
         )
 
         Text(
             text = "Typography.body1",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
         Text(
             text = "Typography.body2",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body2,
         )
         Text(
             text = "Typography.overline",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.overline,
         )
         Text(
             text = "Typography.caption",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.caption,
         )
@@ -122,14 +135,18 @@ fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
         Buttons(isEnabled = true)
         Text(
             text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Justify,
             style = Typography.body2,
         )
 
         Text(
             text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body2,
         )
@@ -139,38 +156,50 @@ fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
         Text(
             text = "Typography.body1 FontWeight.Bold",
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
         Text(
             text = NumberFormat.getCurrencyInstance().format(10000.toBigDecimal()),
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
         Text(
             text = NumberFormat.getCurrencyInstance().format(-10000.toBigDecimal()),
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
         Text(
             text = NumberFormat.getCurrencyInstance().format(0.0.toBigDecimal()),
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
         Text(
             text = NumberFormat.getCurrencyInstance().format(1234.5.toBigDecimal()),
-            modifier = Modifier.align(Alignment.End).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.h5,
         )
         Text(
             text = NumberFormat.getCurrencyInstance().format(-0.0.toBigDecimal()),
-            modifier = Modifier.align(Alignment.End).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
@@ -182,14 +211,18 @@ fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
         }
         Text(
             text = annotatedString,
-            modifier = Modifier.align(Alignment.End).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
         Text(
             text = "APR 30.0% FontWeight.Light",
             fontWeight = FontWeight.Light,
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
@@ -197,37 +230,47 @@ fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
         Text(
             text = "Typography.body1",
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
 //            text = "${DateMapper().getAbsoluteTime(LocalDateTime.now())}",
         Text(
             text = "LocalDateTime.now(): "+"${LocalDateTime.now()}",
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Start,
             style = Typography.body1,
         )
         Text(
             text = "DateTimeFormatter.ISO_DATE: "+LocalDateTime.now().format(DateTimeFormatter.ISO_DATE),
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Start,
             style = Typography.body1,
         )
         Text(
             text = "DateTimeFormatter.ISO_LOCAL_DATE_TIME: "+LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Start,
             style = Typography.body1,
         )
         Text(
             text = "DateTimeFormatter.ISO_WEEK_DATE: "+LocalDateTime.now().format(DateTimeFormatter.ISO_WEEK_DATE),
-            modifier = Modifier.align(Alignment.Start).padding(PaddingTheme),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(PaddingTheme),
             textAlign = TextAlign.Start,
             style = Typography.body1,
         )
 
-        Spacer(modifier = Modifier.height(90.dp))
+        LargeSpacer()
     }
 }
 
@@ -301,7 +344,9 @@ fun ColumnScope.Buttons(isEnabled: Boolean) {
 
     Button(onClick = { /* Do something! */ },
         shape = RoundedCornerShape(50),
-        modifier = Modifier.padding(PaddingTheme).align(Alignment.CenterHorizontally),
+        modifier = Modifier
+            .padding(PaddingTheme)
+            .align(Alignment.CenterHorizontally),
         enabled = isEnabled,
     ) {
         Text("Press me".uppercase())
