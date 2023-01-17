@@ -15,5 +15,9 @@
 
         <activity
             android:name=".RedPagerActivity" />
+
+        <activity
+            android:name=".RedReadableImageCardActivity" />
+
     </application>
 </manifest>

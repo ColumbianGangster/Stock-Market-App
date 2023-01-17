@@ -1,24 +1,25 @@
 package com.dowpro.feature_red
 
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowInsetsController
-import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.core.view.WindowCompat
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
 import com.dowpro.library_design_system.composables.scaffolds.MyStickyNoToolbarScaffold
-import com.dowpro.library_design_system.composables.scaffolds.MyStickyScaffold
 import com.dowpro.library_design_system.composables.text.PrimaryText
 import com.dowpro.library_design_system.theme.MarketAppTheme
 import com.dowpro.library_design_system.theme.Typography
@@ -64,24 +65,44 @@ fun PageScreen(paddingValues: PaddingValues, content: OnboardingTabItem) {
     Column(modifier = Modifier
         .fillMaxWidth()
         .fillMaxHeight()) {
-        val gradient45 = Brush.linearGradient(
-            colors = listOf(Color.Yellow, Color.Red),
-            start = Offset(0f, Float.POSITIVE_INFINITY),
-            end = Offset(Float.POSITIVE_INFINITY, 0f)
-        )
         Box(
             modifier = Modifier
-                .height(300.dp)
                 .background(
-                    Color.Blue
+                    color = Color.Blue,
+                    shape = CutCornerShape(bottomEndPercent = 75),
                 )
                 .fillMaxWidth()
+                .fillMaxHeight(0.5f)
         ) {
-
+            CircleBorderStroke(400.dp) {
+                CircleBorderStroke (300.dp) {
+                    CircleBorderStroke (225.dp) {
+                        CircleBorderStroke (150.dp) {
+                            Box(modifier = Modifier
+                                .padding(16.dp)
+                                .background(shape = CircleShape, color = Color.LightGray)
+                                .height(90.dp)
+                                .width(90.dp)
+                                .align(Alignment.BottomEnd))
+                        }
+                    }
+                }
+            }
         }
-        PrimaryText(text = content.title, style = Typography.h4)
-        PrimaryText(text = content.body)
+        PrimaryText(text = content.title, style = Typography.h3)
+        PrimaryText(text = content.body, style = Typography.h5)
     }
+}
+
+@Composable
+fun BoxScope.CircleBorderStroke(size: Dp, content: @Composable () -> Unit) {
+    Box(modifier = Modifier
+        .padding(16.dp)
+        .background(shape = CircleShape, color = Color.Transparent)
+        .border(width = 2.dp, color = Color.LightGray, shape = CircleShape)
+        .height(size)
+        .width(size)
+        .align(Alignment.BottomEnd)) { content.invoke() }
 }
 
 @OptIn(ExperimentalPagerApi::class)

@@ -15,6 +15,7 @@ import com.dowpro.feature_stock_details.domain.DomainStockDetails
 import com.dowpro.library_design_system.composables.dialogs.MarketAlertDialog
 import com.dowpro.library_design_system.composables.loading.LoadingSurface
 import com.dowpro.library_design_system.composables.other.MarketTopAppBar
+import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
 import com.dowpro.library_design_system.composables.spaces.PrimaryScrollingColumn
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,7 +32,7 @@ class StockDetailsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val state by viewModel.screenState.observeAsState(initial = StockUiState())
-            MarketScaffold {
+            MyScaffold(title = R.string.appbar_title_stock_details, true) {
                 PrimaryScrollingColumn {
                     when (state.screenState) {
                         UiState.LOADING -> ShowLoading()
@@ -54,15 +55,6 @@ class StockDetailsActivity : ComponentActivity() {
     // Since Compose 1.2.0 it is required to use padding parameter, passed into Scaffold content composable.
     // You should apply it to the top most container/view in content.
     // https://stackoverflow.com/questions/72084865/content-padding-parameter-it-is-not-used
-    @Composable
-    fun MarketScaffold(f: @Composable (PaddingValues) -> Unit) {
-        Scaffold(
-            topBar = {
-                MarketTopAppBar(stringResource(R.string.appbar_title_stock_details), true)
-            }, content = {
-                f.invoke(it)
-            })
-    }
 
     @Composable
     fun ShowContent(domainStockDetails: DomainStockDetails) {

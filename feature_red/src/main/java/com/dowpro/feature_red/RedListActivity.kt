@@ -3,6 +3,7 @@ package com.dowpro.feature_red
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.dowpro.library_design_system.composables.cards.RedContent
 import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
 import com.dowpro.library_design_system.theme.MarketAppTheme
 

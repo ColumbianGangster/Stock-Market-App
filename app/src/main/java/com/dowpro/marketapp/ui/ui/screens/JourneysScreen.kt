@@ -34,9 +34,11 @@ fun JourneysScreen(padding: PaddingValues = PaddingValues()) {
         PrimaryButton(text = "Pager Screen") {
             context.startActivity(Intent(context, RedPagerActivity::class.java))
         }
-        PrimaryButton(text = "Collapsing Toolbar Screen") {
-            context.startActivity(Intent(context, RedStickyButtonListActivity::class.java))
+        PrimaryButton(text = "Readable Image Card") {
+            context.startActivity(Intent(context, RedReadableImageCardActivity::class.java))
         }
+
+        // Collapsing Toolbar Screen
     }
 }
 

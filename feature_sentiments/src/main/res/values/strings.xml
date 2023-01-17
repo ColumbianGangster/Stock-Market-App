@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="appbar_title_stock_sentiments">Stock Sentiments</string>
+    <string name="appbar_title_stock_sentiments">Market Sentiment</string>
 
     <string name="sentiment_row_bullish">Bullish</string>
     <string name="sentiment_row_bearish">Bearish</string>

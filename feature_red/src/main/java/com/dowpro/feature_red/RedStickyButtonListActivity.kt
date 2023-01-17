@@ -3,7 +3,10 @@ package com.dowpro.feature_red
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.dowpro.library_design_system.composables.buttons.PrimaryButtonWithBlur
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.Modifier
+import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
+import com.dowpro.library_design_system.composables.cards.RedContent
 import com.dowpro.library_design_system.composables.scaffolds.MyStickyScaffold
 import com.dowpro.library_design_system.theme.MarketAppTheme
 
@@ -16,7 +19,7 @@ class RedStickyButtonListActivity: ComponentActivity() {
                     title = R.string.red_title,
                     closeable = true,
                     content = {
-                        RedLazyColumnScreen(contents = listOf(
+                        RedLazyColumnScreen(modifier = Modifier.padding(it), contents = listOf(
                             RedContent("Diversification", "Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio. A diversified portfolio contains a mix of distinct asset types and investment vehicles in an attempt at limiting exposure to any single asset or risk."),
                             RedContent("Bond", "A bond is a fixed-income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental)."),
                             RedContent("Blockchain", "A blockchain is a distributed database or ledger that is shared among the nodes of a computer network."),
@@ -48,8 +51,8 @@ class RedStickyButtonListActivity: ComponentActivity() {
                         ))
                     },
                     stickyContent = {
-                        PrimaryButtonWithBlur(text = "Confirm") {
-
+                        PrimaryRoundedButton(text = "Confirm") {
+                            finish()
                         }
                     })
             }

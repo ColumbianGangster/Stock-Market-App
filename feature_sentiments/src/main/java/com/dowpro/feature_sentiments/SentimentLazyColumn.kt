@@ -9,7 +9,7 @@ import com.dowpro.library_network.Sentiment
 
 @Composable
 fun SentimentLazyColumn(sentiments: List<Sentiment>, clickListener : (Sentiment) -> Unit) {
-    LazyColumn(modifier = Modifier.fillMaxSize(1F)) {
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(sentiments) { sentiment ->
             SentimentRow(sentiment, clickListener)
         }

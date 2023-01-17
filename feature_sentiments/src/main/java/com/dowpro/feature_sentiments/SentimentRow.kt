@@ -13,15 +13,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.dowpro.library_design_system.composables.spaces.SmallSpacer
 
 @Composable
 fun SentimentRow(sentiment: com.dowpro.library_network.Sentiment, clickListener: (com.dowpro.library_network.Sentiment) -> Unit) {
     Row(modifier = Modifier.padding(all = 8.dp)) {
         if (sentiment.sentiment == stringResource(R.string.sentiment_row_bullish)) {
-            Icon(Icons.Rounded.ThumbUp, contentDescription = stringResource(R.string.sentiment_row_bullish), tint = Color.Blue)
+            AsyncImage(
+                model = "https://static.vecteezy.com/system/resources/thumbnails/005/425/999/small/a-silhouette-of-the-bull-with-an-increased-chart-behind-for-bullish-trend-illustration-free-vector.jpg",
+                contentDescription = stringResource(R.string.sentiment_row_bullish),
+                modifier = Modifier.height(48.dp)
+            )
         } else {
-            Icon(Icons.Rounded.ThumbDown, contentDescription = stringResource(R.string.sentiment_row_bearish), tint = Color.Red)
+            AsyncImage(
+                model = "https://st4.depositphotos.com/7801346/29995/v/450/depositphotos_299957192-stock-illustration-bear-market-bear-and-red.jpgg",
+                contentDescription = stringResource(R.string.sentiment_row_bearish),
+                modifier = Modifier.height(48.dp)
+            )
         }
         Spacer(modifier = Modifier.width(8.dp))
         Column(modifier = Modifier

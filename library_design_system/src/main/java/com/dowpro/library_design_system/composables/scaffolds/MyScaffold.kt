@@ -16,27 +16,5 @@ fun MyScaffold(title: Int, closeable: Boolean = false, content: @Composable (Pad
             })
     }
 
-@Composable
-fun MyStickyScaffold(title: Int, closeable: Boolean = false, content: @Composable (PaddingValues) -> Unit, stickyContent: @Composable () -> Unit) {
-    Scaffold(
-        topBar = {
-            MarketTopAppBar(stringResource(title), closeable)
-        }, content = {
-            content.invoke(it)
-        },
-        bottomBar = {
-            stickyContent.invoke()
-        }
-    )
-}
 
-@Composable
-fun MyStickyNoToolbarScaffold(closeable: Boolean = false, content: @Composable (PaddingValues) -> Unit, stickyContent: @Composable () -> Unit) {
-    Scaffold(content = {
-            content.invoke(it)
-        },
-        bottomBar = {
-            stickyContent.invoke()
-        }
-    )
-}
+

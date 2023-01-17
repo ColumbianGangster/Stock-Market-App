@@ -1,15 +1,13 @@
 package com.dowpro.feature_sentiments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.res.stringResource
 import com.dowpro.library_design_system.composables.dialogs.MarketAlertDialog
 import com.dowpro.library_design_system.composables.loading.LoadingSurface
-import com.dowpro.library_design_system.composables.other.MarketTopAppBar
 import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
 import com.dowpro.library_design_system.theme.MarketAppTheme
 import com.dowpro.library_network.Sentiment
@@ -60,10 +58,8 @@ class SentimentsActivity : ComponentActivity() {
             MarketAppTheme {
                 MyScaffold(title = R.string.appbar_title_stock_sentiments) {
                     SentimentLazyColumn(sentiments) { sentiment ->
-//                        val intent = Intent(this, StockDetailsActivity::class.java).apply {
-//                            putExtra(StockDetailsActivity.TICKER, sentiment.ticker)
-//                        }
-//                        startActivity(intent)
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/finance/quote/${sentiment.ticker}"))
+                        startActivity(intent)
                     }
                 }
             }

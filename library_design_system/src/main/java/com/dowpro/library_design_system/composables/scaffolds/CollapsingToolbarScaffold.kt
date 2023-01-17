@@ -1,9 +1,6 @@
-package com.dowpro.library_design_system.composables.other
+package com.dowpro.library_design_system.composables.scaffolds
 
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material3.*
@@ -12,13 +9,13 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.dowpro.library_design_system.R
+import com.dowpro.library_design_system.composables.other.AboutActionIcon
+import com.dowpro.library_design_system.composables.other.NavigationIcon
 
 
-// https://proandroiddev.com/creating-a-collapsing-topappbar-with-jetpack-compose-d25ad19d6113
+// Credit: https://proandroiddev.com/creating-a-collapsing-topappbar-with-jetpack-compose-d25ad19d6113
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CollapsingToolbarScaffold(navController: NavHostController, title: String, content: @Composable (PaddingValues) -> Unit) {
@@ -40,7 +37,7 @@ fun CollapsingToolbarScaffold(navController: NavHostController, title: String, c
         topBar = {
             LargeTopAppBar(
                 title = { Text(text = title, fontSize = topAppBarTextSize) },
-                navigationIcon = { NavigationIcon(navController = navController)},
+                navigationIcon = { NavigationIcon(navController = navController) },
                 actions = { AboutActionIcon(navController) },
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.largeTopAppBarColors(
