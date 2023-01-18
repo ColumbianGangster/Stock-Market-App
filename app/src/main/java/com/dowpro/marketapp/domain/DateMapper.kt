@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 // https://m2.material.io/design/communication/data-formats.html#date-and-time
 // https://m1.material.io/patterns/data-formats.html
-
+// TODO: Implement date formats that correspond with the suggestions from material design. Currently m3 lacks the above.
 class DateMapper {
 
     /*

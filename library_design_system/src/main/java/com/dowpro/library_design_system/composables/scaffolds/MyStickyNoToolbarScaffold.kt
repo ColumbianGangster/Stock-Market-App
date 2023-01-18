@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun MyStickyNoToolbarScaffold(closeable: Boolean = false, content: @Composable (PaddingValues) -> Unit, stickyContent: @Composable () -> Unit) {
+    // TODO: Introduce a floating close button, to use closeable
     Scaffold(content = {
             content.invoke(it)
         },

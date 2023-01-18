@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'dagger.hilt.android.plugin'
-    id 'kotlin-kapt'
+    // The module has no entrypoint, and therefore does not need id "kotlin-kapt"
+    // https://stackoverflow.com/questions/70550883/warning-the-following-options-were-not-recognized-by-any-processor-dagger-f
 }
 
 android {
@@ -53,11 +53,8 @@ dependencies {
 
     // dagger
     implementation 'com.google.dagger:hilt-android:2.44.2'
-    kapt 'com.google.dagger:hilt-compiler:2.44.2'
     androidTestImplementation  'com.google.dagger:hilt-android-testing:2.44.2'
-    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.44.2'
     testImplementation 'com.google.dagger:hilt-android-testing:2.44.2'
-    kaptTest 'com.google.dagger:hilt-compiler:2.44.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -65,12 +62,4 @@ dependencies {
 
     // security
     implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha03'
-}
-
-kapt {
-    correctErrorTypes true
-}
-
-hilt {
-    enableAggregatingTask = true
 }

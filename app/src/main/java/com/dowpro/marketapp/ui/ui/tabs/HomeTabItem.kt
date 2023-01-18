@@ -8,16 +8,16 @@ import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
+import com.dowpro.feature_red.MockedJourneysScreen
 import com.dowpro.marketapp.ui.ui.screens.DesignScreen
 import com.dowpro.marketapp.ui.ui.screens.FeatureScreen
-import com.dowpro.marketapp.ui.ui.screens.JourneysScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 
 sealed class HomeTabItem(val icon: ImageVector, val title: String, val screen: @Composable () -> Unit) {
     data class DesignLibrary(val padding: PaddingValues = PaddingValues()) : HomeTabItem(Icons.Filled.MusicNote, "Design Library", { DesignScreen() })
-    data class MockedJourneys(val padding: PaddingValues = PaddingValues()) : HomeTabItem(Icons.Filled.Book, "Mocked Journeys", { JourneysScreen(padding) })
-    data class Feature(val padding: PaddingValues = PaddingValues()) : HomeTabItem(Icons.Filled.Movie, "Feature Home", { FeatureScreen(padding) })
+    data class MockedJourneys(val padding: PaddingValues = PaddingValues()) : HomeTabItem(Icons.Filled.Book, "Mocked Journeys", { MockedJourneysScreen(padding) })
+    data class FeatureDemo(val padding: PaddingValues = PaddingValues()) : HomeTabItem(Icons.Filled.Movie, "Feature Demo", { FeatureScreen(padding) })
 }
 
 @OptIn(ExperimentalPagerApi::class)
@@ -27,7 +27,7 @@ fun TabsContentPreview() {
     val tabs = listOf(
         HomeTabItem.DesignLibrary(),
         HomeTabItem.MockedJourneys(),
-        HomeTabItem.Feature(),
+        HomeTabItem.FeatureDemo(),
     )
     val pagerState = rememberPagerState()
     TabsHorizontalPager(tabs = tabs, pagerState = pagerState)

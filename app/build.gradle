@@ -4,8 +4,8 @@ plugins {
     // kotlin-parcelize
     // osslicences plugin
     // version matcher plugin
-    id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
 }
 
 apply from: 'dependencies.gradle'

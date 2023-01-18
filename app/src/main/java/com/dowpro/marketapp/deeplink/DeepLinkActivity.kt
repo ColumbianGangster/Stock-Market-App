@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.dowpro.feature_sentiments.SentimentsActivity
 
+// TODO: Implement this fully
 class DeepLinkActivity: ComponentActivity() {
 
     var url: String = ""

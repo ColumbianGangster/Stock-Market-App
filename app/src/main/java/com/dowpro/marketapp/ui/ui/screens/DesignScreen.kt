@@ -29,7 +29,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-@Composable
+@Composable // TODO: Migrate this to fully use the design library
 fun DesignScreen() {
     PrimaryScrollingColumn {
         Text(
@@ -282,9 +282,6 @@ fun String.convertFormat(formatA: String, formatB: String): String {
 }
 
 @Composable
-/*
- It needs to be an extension function of ColumnScope for .align(Alignment.CenterHorizontally).
- */
 fun ColumnScope.Buttons(isEnabled: Boolean) {
     PrimaryButton(text = "I'm a Button",
         onClick = { /* Do something! */ },

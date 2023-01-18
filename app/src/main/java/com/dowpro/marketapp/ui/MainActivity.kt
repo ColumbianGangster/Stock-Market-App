@@ -34,7 +34,7 @@ fun MainScreen() {
     val pagerState = rememberPagerState()
     TopAppBarScaffold(R.string.appbar_title_main, false) { padding ->
         Column(modifier = Modifier.padding(padding)) {
-            val tabs = listOf(HomeTabItem.DesignLibrary(padding), HomeTabItem.Feature(padding), HomeTabItem.MockedJourneys(padding))
+            val tabs = listOf(HomeTabItem.DesignLibrary(padding), HomeTabItem.FeatureDemo(padding), HomeTabItem.MockedJourneys(padding))
             Tabs(tabs = tabs, pagerState = pagerState)
             TabsHorizontalPager(tabs = tabs, pagerState = pagerState)
         }
