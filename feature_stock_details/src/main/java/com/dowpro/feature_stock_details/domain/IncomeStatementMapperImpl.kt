@@ -1,5 +1,6 @@
 package com.dowpro.feature_stock_details.domain
 
+import com.dowpro.library_network.IncomeStatement
 import kotlin.math.ln
 import kotlin.math.pow
 
@@ -11,7 +12,7 @@ class IncomeStatementMapperImpl : IncomeStatementMapper {
         const val MINUS = "-"
     }
 
-    override fun map(incomeStatement: com.dowpro.library_network.IncomeStatement?): com.dowpro.library_network.IncomeStatement? = incomeStatement?.apply {
+    override fun map(incomeStatement: IncomeStatement?): IncomeStatement? = incomeStatement?.apply {
         annualReports?.map {
             it.formattedGrossProfit = it.grossProfit.toCompactDecimalFormat()
             it.formattedNetIncome = it.netIncome.toCompactDecimalFormat()

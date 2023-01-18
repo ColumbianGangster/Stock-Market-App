@@ -5,9 +5,9 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "Market App"
 include ':app'
-include ':app:sentiments'
 include ':library_design_system'
 include ':feature_sentiments'
 include ':library_network'
