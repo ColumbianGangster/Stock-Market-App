@@ -40,13 +40,19 @@ There are two kinds of module, named: feature_ and library_. A feature cannot de
 - GraphQL WIP implementation
 
 ## Technical Highlights
-- Caching behaviour
+- Multi modular architecture that can scale to become brand agnostic as a white label product
+- Feature modules that are independent from the network/data layer used
+- Working towards a Design System first approach to building a mobile app
+- Working towards making sure to think about how Date and Currency is handled from the get go
 
 # Known issues
 - The APIs on the Stock Details screen have quota limits, though this is mitigated by front end caching.
 - The Stock Price and Day Change is cached, which means it is unfortunately not live.
 
 # TODO
+- Get the blue build variant working with alternative features
+- Make the app module agnostic to which build variant is being run
 - Standardise all version numbers in the project
 - Fully implement multi module jetpack navigation
 - Build up the library_core module using an agile approach
+- Demonstrate the use of graphQL in one of the implemented features
