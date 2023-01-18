@@ -22,7 +22,7 @@ class RedStickyButtonListActivity: ComponentActivity() {
                         RedLazyColumnScreen(modifier = Modifier.padding(it), contents = MockCreator.stickyButtonListContent())
                     },
                     stickyContent = {
-                        PrimaryRoundedButton(text = "Confirm") {
+                        PrimaryRoundedButton(text = getString(R.string.red_sticky_button_list_cta)) {
                             finish()
                         }
                     })

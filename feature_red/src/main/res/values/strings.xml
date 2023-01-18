@@ -26,6 +26,7 @@
     <string name="red_settings_label">Settings</string>
     <string name="red_settings_favourite">Favourite</string>
     <string name="red_settings_legal">Legal</string>
+    <string name="red_sticky_button_list_cta">Confirm</string>
 
 
 </resources>

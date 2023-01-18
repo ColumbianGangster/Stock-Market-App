@@ -11,7 +11,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.dowpro.library_design_system.composables.spaces.VerySmallSpacer
 import com.dowpro.library_network.Sentiment
 
 @Composable
@@ -21,8 +20,8 @@ fun SentimentRow(sentiment: Sentiment, clickListener: (Sentiment) -> Unit) {
     }) {
         Row(modifier = Modifier.padding(all = 8.dp).fillMaxWidth()) {
             val showBullish = sentiment.sentiment == stringResource(R.string.sentiment_row_bullish)
-            val bullishUrl = "https://static.vecteezy.com/system/resources/thumbnails/005/425/999/small/a-silhouette-of-the-bull-with-an-increased-chart-behind-for-bullish-trend-illustration-free-vector.jpg"
-            val bearishUrl = "https://st4.depositphotos.com/7801346/29995/v/450/depositphotos_299957192-stock-illustration-bear-market-bear-and-red.jpgg"
+            val bullishUrl = stringResource(R.string.sentiment_bullish_url)
+            val bearishUrl = stringResource(R.string.sentiment_bearish_url)
 
             AsyncImage(
                 model = if (showBullish) bullishUrl else bearishUrl,
@@ -42,7 +41,8 @@ fun SentimentRow(sentiment: Sentiment, clickListener: (Sentiment) -> Unit) {
                 )
 
                 Text(
-                    text = if (sentiment.sentiment == "Bullish") "Buy" else "Sell",
+                    text = stringResource(if (sentiment.sentiment == stringResource(R.string.sentiment_row_bullish))
+                        R.string.sentiment_not_financial_advise_buy else R.string.sentiment_not_financial_advise_sell),
                     style = MaterialTheme.typography.h5
                 )
 

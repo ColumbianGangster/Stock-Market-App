@@ -58,6 +58,7 @@ class SentimentsActivity : ComponentActivity() {
             AppMaterialTheme {
                 TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
                     SentimentLazyColumn(sentiments) { sentiment ->
+                        // TODO: Use URL builder which is more safe, and migrate logic to mapper.
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/finance/quote/${sentiment.ticker}"))
                         startActivity(intent)
                     }
