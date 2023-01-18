@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
-import com.dowpro.library_design_system.composables.cards.RedContent
 import com.dowpro.library_design_system.composables.cards.RedLazyColumnScreen
 import com.dowpro.library_design_system.composables.scaffolds.MyStickyScaffold
 import com.dowpro.library_design_system.theme.AppMaterialTheme
@@ -20,36 +19,7 @@ class RedStickyButtonListActivity: ComponentActivity() {
                     title = R.string.red_title,
                     closeable = true,
                     content = {
-                        RedLazyColumnScreen(modifier = Modifier.padding(it), contents = listOf(
-                            RedContent("Diversification", "Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio. A diversified portfolio contains a mix of distinct asset types and investment vehicles in an attempt at limiting exposure to any single asset or risk."),
-                            RedContent("Bond", "A bond is a fixed-income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental)."),
-                            RedContent("Blockchain", "A blockchain is a distributed database or ledger that is shared among the nodes of a computer network."),
-                            RedContent("Exchange-Traded Fund (ETF)", "An exchange-traded fund (ETF) is a type of pooled investment security that operates much like a mutual fund. Typically, ETFs will track a particular index, sector, commodity, or other assets, but unlike mutual funds, ETFs can be purchased or sold on a stock exchange the same way that a regular stock can."),
-                            RedContent("Dividend Yield", "The dividend yield, expressed as a percentage, is a financial ratio (dividend/price) that shows how much a company pays out in dividends each year relative to its stock price."),
-                            RedContent("Financial Statement", "Financial statements are written records that convey the business activities and the financial performance of a company."),
-                            RedContent("Opportunity Cost", "Opportunity costs represent the potential benefits that an individual, investor, or business misses out on when choosing one alternative over another."),
-                            RedContent("Diversification", "Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio. A diversified portfolio contains a mix of distinct asset types and investment vehicles in an attempt at limiting exposure to any single asset or risk."),
-                            RedContent("Bond", "A bond is a fixed-income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental)."),
-                            RedContent("Blockchain", "A blockchain is a distributed database or ledger that is shared among the nodes of a computer network."),
-                            RedContent("Exchange-Traded Fund (ETF)", "An exchange-traded fund (ETF) is a type of pooled investment security that operates much like a mutual fund. Typically, ETFs will track a particular index, sector, commodity, or other assets, but unlike mutual funds, ETFs can be purchased or sold on a stock exchange the same way that a regular stock can."),
-                            RedContent("Dividend Yield", "The dividend yield, expressed as a percentage, is a financial ratio (dividend/price) that shows how much a company pays out in dividends each year relative to its stock price."),
-                            RedContent("Financial Statement", "Financial statements are written records that convey the business activities and the financial performance of a company."),
-                            RedContent("Opportunity Cost", "Opportunity costs represent the potential benefits that an individual, investor, or business misses out on when choosing one alternative over another."),
-                            RedContent("Diversification", "Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio. A diversified portfolio contains a mix of distinct asset types and investment vehicles in an attempt at limiting exposure to any single asset or risk."),
-                            RedContent("Bond", "A bond is a fixed-income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental)."),
-                            RedContent("Blockchain", "A blockchain is a distributed database or ledger that is shared among the nodes of a computer network."),
-                            RedContent("Exchange-Traded Fund (ETF)", "An exchange-traded fund (ETF) is a type of pooled investment security that operates much like a mutual fund. Typically, ETFs will track a particular index, sector, commodity, or other assets, but unlike mutual funds, ETFs can be purchased or sold on a stock exchange the same way that a regular stock can."),
-                            RedContent("Dividend Yield", "The dividend yield, expressed as a percentage, is a financial ratio (dividend/price) that shows how much a company pays out in dividends each year relative to its stock price."),
-                            RedContent("Financial Statement", "Financial statements are written records that convey the business activities and the financial performance of a company."),
-                            RedContent("Opportunity Cost", "Opportunity costs represent the potential benefits that an individual, investor, or business misses out on when choosing one alternative over another."),
-                            RedContent("Diversification", "Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio. A diversified portfolio contains a mix of distinct asset types and investment vehicles in an attempt at limiting exposure to any single asset or risk."),
-                            RedContent("Bond", "A bond is a fixed-income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental)."),
-                            RedContent("Blockchain", "A blockchain is a distributed database or ledger that is shared among the nodes of a computer network."),
-                            RedContent("Exchange-Traded Fund (ETF)", "An exchange-traded fund (ETF) is a type of pooled investment security that operates much like a mutual fund. Typically, ETFs will track a particular index, sector, commodity, or other assets, but unlike mutual funds, ETFs can be purchased or sold on a stock exchange the same way that a regular stock can."),
-                            RedContent("Dividend Yield", "The dividend yield, expressed as a percentage, is a financial ratio (dividend/price) that shows how much a company pays out in dividends each year relative to its stock price."),
-                            RedContent("Financial Statement", "Financial statements are written records that convey the business activities and the financial performance of a company."),
-                            RedContent("Opportunity Cost", "Opportunity costs represent the potential benefits that an individual, investor, or business misses out on when choosing one alternative over another."),
-                        ))
+                        RedLazyColumnScreen(modifier = Modifier.padding(it), contents = MockCreator.stickyButtonListContent())
                     },
                     stickyContent = {
                         PrimaryRoundedButton(text = "Confirm") {

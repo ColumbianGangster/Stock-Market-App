@@ -20,10 +20,10 @@ class RedRowActivity: ComponentActivity() {
             AppMaterialTheme {
                 TopAppBarScaffold(R.string.red_title, true) {
                     IconCardLazyRow(contents = listOf(
-                        RowContent("Help", Icons.Rounded.Help, R.string.content_description_help),
-                        RowContent("Settings", Icons.Rounded.Settings, R.string.content_description_settings),
-                        RowContent("Favourite", Icons.Rounded.Favorite, R.string.content_description_favourite),
-                        RowContent("Legal", Icons.Rounded.Info, R.string.content_description_legal),
+                        RowContent(getString(R.string.red_settings_help), Icons.Rounded.Help, R.string.content_description_help),
+                        RowContent(getString(R.string.red_settings_label), Icons.Rounded.Settings, R.string.content_description_settings),
+                        RowContent(getString(R.string.red_settings_favourite), Icons.Rounded.Favorite, R.string.content_description_favourite),
+                        RowContent(getString(R.string.red_settings_legal), Icons.Rounded.Info, R.string.content_description_legal),
                     ))
                 }
             }

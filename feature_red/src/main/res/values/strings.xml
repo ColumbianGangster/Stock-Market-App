@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="red_title">Red Screen</string>
+
     <string name="content_description_help">Help</string>
     <string name="content_description_settings">Settings</string>
     <string name="content_description_favourite">Favourite</string>
     <string name="content_description_legal">Legal</string>
+
+    <string name="red_journeys_advice">When buttons are stacked you should use square buttons</string>
+    <string name="red_journeys_simple_lazy_column_screen">Simple Lazy Column Screen</string>
+    <string name="red_journeys_simple_lazy_row_screen">Simple Lazy Row Screen</string>
+    <string name="red_journeys_async_image_lazy_column_screen">Async Image Lazy Column Screen</string>
+    <string name="red_journeys_sticky_button_list_screen">Sticky Button List Screen</string>
+    <string name="red_journeys_pager_screen">Pager Screen</string>
+    <string name="red_journeys_readable_image_card_screen">Readable Image Card</string>
+
+    <string name="red_pager_primary_cta">Next</string>
+    <string name="pager_content_description_first">Page introducing the blockchain feature</string>
+    <string name="pager_content_description_second">Explains the ledger feature</string>
+    <string name="pager_title_first">Introducing Blockchain</string>
+    <string name="pager_body_first">Your one-stop shop for all things blockchain</string>
+    <string name="pager_title_second">See your entire ledger</string>
+    <string name="pager_body_second">A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes.</string>
+    <string name="red_settings_help">Help</string>
+    <string name="red_settings_label">Settings</string>
+    <string name="red_settings_favourite">Favourite</string>
+    <string name="red_settings_legal">Legal</string>
+
+
 </resources>

@@ -9,4 +9,5 @@
     <string name="sentiment_row_comments">Comments: %1$d</string>
     <string name="sentiment_row_score">Sentiment Score: %1$f</string>
     <string name="sentiments_help_header">Ordered by the number of reddit comments on r/WallStreetBets</string>
+    <string name="sentiments_primary_cta">More information</string>
 </resources>

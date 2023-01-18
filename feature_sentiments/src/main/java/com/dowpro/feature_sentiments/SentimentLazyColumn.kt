@@ -33,7 +33,7 @@ fun SentimentLazyColumn(sentiments: List<Sentiment>, clickListener : (Sentiment)
             }
         }
     }, stickyContent = {
-        PrimaryRoundedButton(text = "More information") {
+        PrimaryRoundedButton(text = stringResource(R.string.sentiments_primary_cta)) {
 
         }
     })

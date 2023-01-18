@@ -13,6 +13,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
@@ -48,7 +49,7 @@ class RedPagerActivity: ComponentActivity() {
                     val tabs = listOf(OnboardingTabItem.Introducing(it), OnboardingTabItem.MoreDetails(it),)
                     OnboardingPager(tabs = tabs, pagerState = pagerState)
                 }, {
-                    PrimaryRoundedButton(text = "Next", modifier = Modifier.padding(bottom = 24.dp)) {
+                    PrimaryRoundedButton(text = getString(R.string.red_pager_primary_cta), modifier = Modifier.padding(bottom = 24.dp)) {
                         finish()
                     }
                 })
@@ -58,7 +59,7 @@ class RedPagerActivity: ComponentActivity() {
 }
 
 @Composable
-fun PageScreen(paddingValues: PaddingValues, content: OnboardingTabItem) {
+fun PageScreen(content: OnboardingTabItem) {
     Column(modifier = Modifier
         .fillMaxWidth()
         .fillMaxHeight()) {
@@ -86,8 +87,8 @@ fun PageScreen(paddingValues: PaddingValues, content: OnboardingTabItem) {
                 }
             }
         }
-        PrimaryText(text = content.title, style = Typography.h3)
-        PrimaryText(text = content.body, style = Typography.h5)
+        PrimaryText(text = stringResource(content.title), style = Typography.h3)
+        PrimaryText(text = stringResource(content.body), style = Typography.h5)
     }
 }
 
@@ -112,18 +113,16 @@ fun OnboardingPager(tabs: List<OnboardingTabItem>, pagerState: PagerState) {
     }
 }
 
-sealed class OnboardingTabItem(val contentDescription: Int, val title: String, val body: String, val screen: @Composable (OnboardingTabItem) -> Unit) {
+sealed class OnboardingTabItem(val title: Int, val body: Int, val screen: @Composable (OnboardingTabItem) -> Unit) {
     data class Introducing(val padding: PaddingValues = PaddingValues()) :
         OnboardingTabItem(
-            contentDescription = 0,
-            title = "Introducing Blockchain",
-            body = "Your one-stop shop for all things blockchain",
-            screen = { PageScreen(paddingValues = padding, content = it) })
+            title = R.string.pager_title_first,
+            body = R.string.pager_body_first,
+            screen = { PageScreen(content = it) })
 
     data class MoreDetails(val padding: PaddingValues = PaddingValues()) :
         OnboardingTabItem(
-            contentDescription = 0,
-            title = "See your entire ledger",
-            body = "A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes.",
-            screen = { PageScreen(paddingValues = padding, content = it) })
+            title = R.string.pager_title_second,
+            body = R.string.pager_body_second,
+            screen = { PageScreen(content = it) })
 }
