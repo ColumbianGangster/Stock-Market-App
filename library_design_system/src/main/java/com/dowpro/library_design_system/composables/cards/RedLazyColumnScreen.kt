@@ -1,11 +1,9 @@
-package com.dowpro.feature_red
+package com.dowpro.library_design_system.composables.cards
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.dowpro.library_design_system.composables.cards.RedContent
-import com.dowpro.library_design_system.composables.cards.SimpleTextCard
 import com.dowpro.library_design_system.composables.spaces.LargeSpacer
 
 @Composable
@@ -18,5 +16,4 @@ fun RedLazyColumnScreen(modifier: Modifier = Modifier, contents: List<RedContent
             LargeSpacer()
         }
     }
-
 }

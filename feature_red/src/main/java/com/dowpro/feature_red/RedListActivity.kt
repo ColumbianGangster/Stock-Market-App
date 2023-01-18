@@ -4,15 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.dowpro.library_design_system.composables.cards.RedContent
-import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
-import com.dowpro.library_design_system.theme.MarketAppTheme
+import com.dowpro.library_design_system.composables.cards.RedLazyColumnScreen
+import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
+import com.dowpro.library_design_system.theme.AppMaterialTheme
 
 class RedListActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarketAppTheme {
-                MyScaffold(R.string.red_title, true) {
+            AppMaterialTheme {
+                TopAppBarScaffold(R.string.red_title, true) {
                     RedLazyColumnScreen(contents = listOf(
                         RedContent("Diversification", "Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio. A diversified portfolio contains a mix of distinct asset types and investment vehicles in an attempt at limiting exposure to any single asset or risk."),
                         RedContent("Bond", "A bond is a fixed-income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental)."),

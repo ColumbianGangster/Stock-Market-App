@@ -7,14 +7,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
 import com.dowpro.library_design_system.composables.cards.RedContent
+import com.dowpro.library_design_system.composables.cards.RedLazyColumnScreen
 import com.dowpro.library_design_system.composables.scaffolds.MyStickyScaffold
-import com.dowpro.library_design_system.theme.MarketAppTheme
+import com.dowpro.library_design_system.theme.AppMaterialTheme
 
 class RedStickyButtonListActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarketAppTheme {
+            AppMaterialTheme {
                 MyStickyScaffold(
                     title = R.string.red_title,
                     closeable = true,

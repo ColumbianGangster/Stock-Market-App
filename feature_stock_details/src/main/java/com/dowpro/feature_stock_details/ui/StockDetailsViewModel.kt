@@ -22,26 +22,26 @@ class StockDetailsViewModel @Inject constructor(private val useCase: GetStockDet
     fun getStock(ticker: String) {
         viewModelScope.launch {
             try {
-                _screenState.value = StockUiState(screenState = UiState.LOADING)
+                _screenState.value = StockUiState(screenState = UiState.Loading)
                 val result = useCase.execute(ticker)
-                _screenState.value = StockUiState(screenState = UiState.SUCCESS, domainStockDetails = result)
+                _screenState.value = StockUiState(screenState = UiState.Success, domainStockDetails = result)
                 delay(500) // is this needed?
             } catch (exception: Exception) {
-                _screenState.value = StockUiState(screenState = UiState.ERROR, exception = exception)
+                _screenState.value = StockUiState(screenState = UiState.Error, exception = exception)
             }
         }
     }
 }
 
 sealed class UiState {
-    object LOADING: UiState()
-    object SUCCESS: UiState()
-    object ERROR: UiState()
+    object Loading: UiState()
+    object Success: UiState()
+    object Error: UiState()
 }
 
 @Immutable
 data class StockUiState(
-    val screenState: UiState = UiState.LOADING,
+    val screenState: UiState = UiState.Loading,
     val domainStockDetails: DomainStockDetails? = null,
     val exception: Throwable? = null
 )

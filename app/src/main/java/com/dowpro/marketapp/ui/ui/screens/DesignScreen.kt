@@ -1,10 +1,8 @@
 package com.dowpro.marketapp.ui.ui.screens
 
-import androidx.compose.foundation.background
+
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -18,11 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.dowpro.library_design_system.composables.buttons.PrimaryButton
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
 import com.dowpro.library_design_system.composables.spaces.LargeSpacer
 import com.dowpro.library_design_system.composables.spaces.MyModifier
+import com.dowpro.library_design_system.composables.spaces.PrimaryScrollingColumn
 import com.dowpro.library_design_system.theme.PaddingTheme
 import com.dowpro.library_design_system.theme.Typography
 import java.text.NumberFormat
@@ -32,17 +30,8 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 @Composable
-/*
-  .verticalScroll(rememberScrollState()) is a compose/gesture.
- */
-fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
-    Column(
-        modifier = Modifier
-            .padding(paddingValues)
-            .fillMaxSize()
-            .background(Color.White)
-            .verticalScroll(rememberScrollState())
-    ) {
+fun DesignScreen() {
+    PrimaryScrollingColumn {
         Text(
             text = "Design",
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -236,7 +225,7 @@ fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
             textAlign = TextAlign.Center,
             style = Typography.body1,
         )
-//            text = "${DateMapper().getAbsoluteTime(LocalDateTime.now())}",
+
         Text(
             text = "LocalDateTime.now(): "+"${LocalDateTime.now()}",
             modifier = Modifier
@@ -245,6 +234,7 @@ fun DesignScreen(paddingValues: PaddingValues = PaddingValues()) {
             textAlign = TextAlign.Start,
             style = Typography.body1,
         )
+
         Text(
             text = "DateTimeFormatter.ISO_DATE: "+LocalDateTime.now().format(DateTimeFormatter.ISO_DATE),
             modifier = Modifier

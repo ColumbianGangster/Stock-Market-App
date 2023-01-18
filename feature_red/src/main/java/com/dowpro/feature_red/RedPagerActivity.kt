@@ -12,16 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.dowpro.library_design_system.composables.buttons.PrimaryRoundedButton
 import com.dowpro.library_design_system.composables.scaffolds.MyStickyNoToolbarScaffold
 import com.dowpro.library_design_system.composables.text.PrimaryText
-import com.dowpro.library_design_system.theme.MarketAppTheme
+import com.dowpro.library_design_system.theme.AppMaterialTheme
 import com.dowpro.library_design_system.theme.Typography
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -36,7 +33,7 @@ class RedPagerActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarketAppTheme {
+            AppMaterialTheme {
                 val systemUiController: SystemUiController = rememberSystemUiController()
                 DisposableEffect(systemUiController, false) {
                     systemUiController.setStatusBarColor(

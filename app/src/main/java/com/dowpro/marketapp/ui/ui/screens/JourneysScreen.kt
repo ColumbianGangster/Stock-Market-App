@@ -1,7 +1,10 @@
 package com.dowpro.marketapp.ui.ui.screens
 
 import android.content.Intent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -37,8 +40,6 @@ fun JourneysScreen(padding: PaddingValues = PaddingValues()) {
         PrimaryButton(text = "Readable Image Card") {
             context.startActivity(Intent(context, RedReadableImageCardActivity::class.java))
         }
-
-        // Collapsing Toolbar Screen
     }
 }
 

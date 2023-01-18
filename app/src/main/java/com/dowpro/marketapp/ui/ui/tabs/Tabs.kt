@@ -1,17 +1,17 @@
 package com.dowpro.marketapp.ui.ui.tabs
 
-import androidx.compose.runtime.Composable
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.PagerState
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.LeadingIconTab
 import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults
 import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import kotlinx.coroutines.launch
 
@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 @Composable
 fun Tabs(tabs: List<HomeTabItem>, pagerState: PagerState) {
     val scope = rememberCoroutineScope()
-    // OR ScrollableTabRow()
     TabRow(
         selectedTabIndex = pagerState.currentPage,
         backgroundColor = Color.Blue,

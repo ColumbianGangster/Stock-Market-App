@@ -1,7 +1,5 @@
 package com.dowpro.marketapp.domain
 
-import com.dowpro.library_network.AnnualReport
-import com.dowpro.library_network.IncomeStatement
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

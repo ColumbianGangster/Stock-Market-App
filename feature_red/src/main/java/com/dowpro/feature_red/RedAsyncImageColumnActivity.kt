@@ -5,15 +5,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.dowpro.library_design_system.composables.cards.AsyncImageCardContent
 import com.dowpro.library_design_system.composables.cards.AsyncImageLazyColumn
-import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
-import com.dowpro.library_design_system.theme.MarketAppTheme
+import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
+import com.dowpro.library_design_system.theme.AppMaterialTheme
 
 class RedAsyncImageColumnActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarketAppTheme {
-                MyScaffold(R.string.red_title, true) {
+            AppMaterialTheme {
+                TopAppBarScaffold(R.string.red_title, true) {
                     AsyncImageLazyColumn(contents = listOf(
                         AsyncImageCardContent(
                             url = "https://developer.android.com/static/images/jetpack/compose/graphics-sourceimagesmall.jpg",

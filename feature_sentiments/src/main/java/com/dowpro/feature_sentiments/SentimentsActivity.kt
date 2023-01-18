@@ -8,8 +8,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.dowpro.library_design_system.composables.dialogs.MarketAlertDialog
 import com.dowpro.library_design_system.composables.loading.LoadingSurface
-import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
-import com.dowpro.library_design_system.theme.MarketAppTheme
+import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
+import com.dowpro.library_design_system.theme.AppMaterialTheme
 import com.dowpro.library_network.Sentiment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,8 +21,8 @@ class SentimentsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarketAppTheme {
-                MyScaffold(title = R.string.appbar_title_stock_sentiments) {
+            AppMaterialTheme {
+                TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
 
                 }
             }
@@ -44,8 +44,8 @@ class SentimentsActivity : ComponentActivity() {
     private fun showLoading(loading: Boolean) {
         if (loading) {
             setContent {
-                MarketAppTheme {
-                    MyScaffold(title = R.string.appbar_title_stock_sentiments) {
+                AppMaterialTheme {
+                    TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
                         LoadingSurface()
                     }
                 }
@@ -55,8 +55,8 @@ class SentimentsActivity : ComponentActivity() {
 
     private fun showSentiments(sentiments: List<Sentiment>) {
         setContent {
-            MarketAppTheme {
-                MyScaffold(title = R.string.appbar_title_stock_sentiments) {
+            AppMaterialTheme {
+                TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
                     SentimentLazyColumn(sentiments) { sentiment ->
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/finance/quote/${sentiment.ticker}"))
                         startActivity(intent)
@@ -68,8 +68,8 @@ class SentimentsActivity : ComponentActivity() {
 
     private fun showError(throwable: Throwable) {
         setContent {
-            MarketAppTheme {
-                MyScaffold(title = R.string.appbar_title_stock_sentiments) {
+            AppMaterialTheme {
+                TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
                     MarketAlertDialog(throwable,
                         {
                             viewModel.getSentiments()

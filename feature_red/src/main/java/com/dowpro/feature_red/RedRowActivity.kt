@@ -10,15 +10,15 @@ import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Settings
 import com.dowpro.library_design_system.composables.cards.IconCardLazyRow
 import com.dowpro.library_design_system.composables.cards.RowContent
-import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
-import com.dowpro.library_design_system.theme.MarketAppTheme
+import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
+import com.dowpro.library_design_system.theme.AppMaterialTheme
 
 class RedRowActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarketAppTheme {
-                MyScaffold(R.string.red_title, true) {
+            AppMaterialTheme {
+                TopAppBarScaffold(R.string.red_title, true) {
                     IconCardLazyRow(contents = listOf(
                         RowContent("Help", Icons.Rounded.Help, R.string.content_description_help),
                         RowContent("Settings", Icons.Rounded.Settings, R.string.content_description_settings),
@@ -30,3 +30,4 @@ class RedRowActivity: ComponentActivity() {
         }
     }
 }
+

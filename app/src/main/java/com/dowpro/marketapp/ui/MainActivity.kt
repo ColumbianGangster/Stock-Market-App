@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.dowpro.library_design_system.composables.scaffolds.MyScaffold
+import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
 import com.dowpro.marketapp.R
 import com.dowpro.marketapp.ui.ui.tabs.HomeTabItem
 import com.dowpro.marketapp.ui.ui.tabs.Tabs
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen() {
     val pagerState = rememberPagerState()
-    MyScaffold(R.string.appbar_title_main, false) { padding ->
+    TopAppBarScaffold(R.string.appbar_title_main, false) { padding ->
         Column(modifier = Modifier.padding(padding)) {
             val tabs = listOf(HomeTabItem.DesignLibrary(padding), HomeTabItem.Feature(padding), HomeTabItem.MockedJourneys(padding))
             Tabs(tabs = tabs, pagerState = pagerState)
@@ -40,7 +40,6 @@ fun MainScreen() {
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
