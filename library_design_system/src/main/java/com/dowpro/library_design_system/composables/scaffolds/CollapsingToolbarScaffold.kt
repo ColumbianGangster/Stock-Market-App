@@ -9,8 +9,8 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.dowpro.library_design_system.composables.other.AboutActionIcon
 import com.dowpro.library_design_system.composables.other.NavigationIcon
 
@@ -18,7 +18,7 @@ import com.dowpro.library_design_system.composables.other.NavigationIcon
 // Credit: https://proandroiddev.com/creating-a-collapsing-topappbar-with-jetpack-compose-d25ad19d6113
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CollapsingToolbarScaffold(navController: NavHostController, title: String, content: @Composable (PaddingValues) -> Unit) {
+fun CollapsingToolbarScaffold(titleId: Int, content: @Composable (PaddingValues) -> Unit) {
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
     val isCollapsed = remember { derivedStateOf { scrollBehavior.state.collapsedFraction > 0.5 } }
 
@@ -36,9 +36,9 @@ fun CollapsingToolbarScaffold(navController: NavHostController, title: String, c
     Scaffold(
         topBar = {
             LargeTopAppBar(
-                title = { Text(text = title, fontSize = topAppBarTextSize) },
-                navigationIcon = { NavigationIcon(navController = navController) },
-                actions = { AboutActionIcon(navController) },
+                title = { Text(text = stringResource(id = titleId), fontSize = topAppBarTextSize) },
+                navigationIcon = { NavigationIcon() },
+                actions = { AboutActionIcon() },
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.largeTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,

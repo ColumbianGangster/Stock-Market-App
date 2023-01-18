@@ -4,6 +4,6 @@ import com.dowpro.library_network.IncomeStatement
 
 
 interface IncomeStatementMapper {
-    fun map(incomeStatement: com.dowpro.library_network.IncomeStatement?): com.dowpro.library_network.IncomeStatement?
+    fun map(incomeStatement: IncomeStatement?): IncomeStatement?
 }
 

@@ -20,7 +20,6 @@ class SentimentsViewModel @Inject constructor(private val stockRepository: Stock
         viewModelScope.launch {
             try {
                 val sentiments = stockRepository.getSentiments()
-                delay(500)
                 mutableLiveData.value = SentimentsState.Success(sentiments)
             } catch (exception: Exception) {
                 mutableLiveData.value = SentimentsState.Error(exception)

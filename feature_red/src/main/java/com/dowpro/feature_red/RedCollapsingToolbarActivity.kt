@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.dowpro.library_design_system.composables.scaffolds.CollapsingToolbarScaffold
-import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
 import com.dowpro.library_design_system.theme.AppMaterialTheme
 
 class RedCollapsingToolbarActivity: ComponentActivity() {
@@ -12,7 +11,7 @@ class RedCollapsingToolbarActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppMaterialTheme {
-                CollapsingToolbarScaffold(R.string.red_title, true) {
+                CollapsingToolbarScaffold(R.string.red_title) {
 
                 }
             }

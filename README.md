@@ -1,28 +1,42 @@
 # Stock-Market-App
-View investor sentiments of a stock and perform horizontal financial statement analysis
+The aim of this app is to demonstrate a multi module architecture that is powered by a design library module.
 
-For reviewers: Time spent on this was just over 2 days, and therefore it has areas for improvement as noted below. Please also notice my clean commit messages.
+My intention was to first build the design library before even starting the features. 
 
-Technologies
-- Jetpack Compose. This is my first investigation into Jetpack Compose.
-- MVVM with the Loading Content Error pattern via a sealed class.
+# To Build the Project
+
+Please run the redDebug build variant. I didn't get the time to work on blueDebug and it probably fails at compile time due to the multi module navigation not being set up yet; the app module is not yet agnostic to which features the build variant supports. 
+
+## Architecture
+
+There are two kinds of module: features and libraries. A feature cannot depend on a feature. A feature can depend on a library. A library can depend on a library.
+
+- feature_red contains a variety of mocked journeys, which will act as the basis for later features.
+- feature_sentiments uses MVVM with LiveData with the Loading Success Error pattern via a sealed class.
+- feature_stock_details uses the MVVM with LiveData with a single state class. I have disabled this feature, as the endpoint was not working.
+- feature_red and feature_blue illustrate how to have two build variants with different features. The navigation is not yet fully set up to support this though.
+- feature_test_core_utils exists to resolve a circular dependency issue by providing DispatcherProvider, which is needed by both library_core and library_core_testing.
+
+## For reviewers
+- I was not quite sure what kind of feature I wanted to build, and my idea changed mid way while working on the codebase. I was more interested in getting a design library set up that I could use for features.
+- The codebase is pretty work in progress, but I think there are a variety of things that may be interesting in the project.
+- There are places where I took ideas from, and credit is clearly stated in the comments within the code.
+- I actually did not get time to implement a ViewModel/UseCase pattern that is my current preference. The approach taken in the codebase, in particular for the StockDetails is an older one that I have moved away from. 
+
+# Technologies
+- Jetpack Compose using BoM (however I have overridden one of the compose UI libraries in order to use a feature that exists in alpha)
+- MVVM with LiveData
 - Kotlin
 - Coroutines
 - Dagger Hilt
 - AndroidX Crypto for Encryption
+- Intent based navigation (I plan to migrate to Jetpack Navigation)
+- Coin for AsyncImage
+- GraphQL WIP implementation
 
-Technical Highlights
+## Technical Highlights
 - Caching behaviour
-- Single module clean architecture
 
-Known issues
-- The stock with ticker BENE fails to parse due to not handling the particular string from the api
-- It is unclear (to me) what is the benefit of the Sentiment Score
-- Possible smooth scrolling performance issue, at least seen on a low end device
-- The ThumbsUp ThumbsDown icons are unclear that they represent whether the sentiment is Bullish or Bearish
-- Stock Price and Day Change are not correctly formatted on the Stock Details screen
-- The date on the Stock Details screen may be unclear that it is the year ending on the income statement
-- Scrolling issue on the Stock Details screen, noticeable on smaller devices or when View Company Overview is expanded
+# Known issues
 - The APIs on the Stock Details screen have quota limits, though this is mitigated by front end caching.
 - The Stock Price and Day Change is cached, which means it is unfortunately not live.
-

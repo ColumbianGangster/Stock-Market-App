@@ -19,5 +19,8 @@
         <activity
             android:name=".RedReadableImageCardActivity" />
 
+        <activity
+            android:name=".RedCollapsingToolbarActivity" />
+
     </application>
 </manifest>
