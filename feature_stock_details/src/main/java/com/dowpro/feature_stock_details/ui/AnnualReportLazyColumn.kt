@@ -11,11 +11,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dowpro.feature_stock_details.R
 import com.dowpro.library_design_system.composables.spaces.VerySmallSpacer
+import com.dowpro.library_network.AnnualReport
 
 @Composable
 fun AnnualReportLazyColumn(
-    annualReports: List<com.dowpro.library_network.AnnualReport>,
-    clickListener: (com.dowpro.library_network.AnnualReport) -> Unit
+    annualReports: List<AnnualReport>,
+    clickListener: (AnnualReport) -> Unit
 ) {
     Column(
         modifier = Modifier

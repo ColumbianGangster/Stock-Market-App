@@ -20,6 +20,7 @@ import com.dowpro.library_network.AnnualReport
 import com.dowpro.feature_stock_details.R
 
 @Composable
+@Deprecated(message = "Migrate to the design library")
 fun AnnualReportRow(annualReport: AnnualReport, clickListener: (AnnualReport) -> Unit) {
     Row {
         var isExpanded by remember { mutableStateOf(false) }

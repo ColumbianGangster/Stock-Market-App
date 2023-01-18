@@ -17,6 +17,7 @@ import com.dowpro.library_network.CompanyOverview
 import com.dowpro.library_network.Stock
 
 @Composable
+@Deprecated(message = "Migrate to the design library module")
 fun StockSurface(ticker: String, stock: Stock?, companyOverview: CompanyOverview?) {
     Surface(modifier = Modifier
         .padding(all = 8.dp)

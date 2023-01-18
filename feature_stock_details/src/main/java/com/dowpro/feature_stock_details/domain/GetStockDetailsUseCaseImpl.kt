@@ -7,6 +7,7 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.supervisorScope
 
+@Deprecated(message = "Caching logic should be moved to the data layer")
 class GetStockDetailsUseCaseImpl(
     private val stockRepository: StockRepository,
     private val storageRepository: StorageRepository,

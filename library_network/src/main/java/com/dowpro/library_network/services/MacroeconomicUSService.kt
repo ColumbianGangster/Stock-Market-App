@@ -3,6 +3,7 @@ package com.dowpro.library_network.services
 import com.dowpro.library_network.repos.EconDbResponse
 import retrofit2.http.GET
 
+// TODO: Move the base url out of the class
 interface MacroeconomicUSService {
     @GET("https://www.econdb.com/api/series/CPIUS/?format=json")
     suspend fun getConsumerPriceIndex(): EconDbResponse

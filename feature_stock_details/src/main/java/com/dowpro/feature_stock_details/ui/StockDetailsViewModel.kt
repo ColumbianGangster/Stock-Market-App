@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.dowpro.feature_stock_details.domain.DomainStockDetails
 import com.dowpro.feature_stock_details.domain.GetStockDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,7 +24,6 @@ class StockDetailsViewModel @Inject constructor(private val useCase: GetStockDet
                 _screenState.value = StockUiState(screenState = UiState.Loading)
                 val result = useCase.execute(ticker)
                 _screenState.value = StockUiState(screenState = UiState.Success, domainStockDetails = result)
-                delay(500) // is this needed?
             } catch (exception: Exception) {
                 _screenState.value = StockUiState(screenState = UiState.Error, exception = exception)
             }
