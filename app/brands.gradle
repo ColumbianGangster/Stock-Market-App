@@ -1,2 +1,1 @@
 apply from: 'brandConfig/red.gradle'
-apply from: 'brandConfig/blue.gradle'

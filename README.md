@@ -1,14 +1,14 @@
 # Stock-Market-App
-The aim of this app is to demonstrate a multi module architecture that is powered by a design library module.
+The aim of this app is to demonstrate a multi module architecture that is powered by a m3 design library module.
 
 My intention was to first build the design library before even starting the features.
 
-I have disabled the Stock details screen as I need to change the endpoints, and google finance has done an amazing job at creating a stock details screen.
+I have removed the Stock details screen as I need to change the endpoints, and google finance has done an amazing job at creating a stock details screen.
 
 # To Build the Project
 
 - Please run the redDebug build variant. 
-- I didn't get the time to work on blueDebug and it probably fails at compile time due to the multi module navigation not being set up yet; the app module is not yet agnostic to which features the build variant supports. 
+- blueDebug has been removed due to the multi module navigation not being set up yet; the app module is not yet agnostic to which features the build variant supports. 
 
 ## Architecture
 
@@ -16,8 +16,7 @@ There are two kinds of module, named: feature_ and library_. A feature cannot de
 
 - feature_red contains a variety of mocked journeys, which will act as the basis for later features.
 - feature_sentiments uses MVVM with LiveData with the Loading Success Error pattern via a sealed class.
-- feature_stock_details uses the MVVM with LiveData with a single state class. I have disabled this feature, as the endpoint was not working.
-- feature_red and feature_blue illustrate how to have two build variants with different features. The navigation is not yet fully set up to support this though.
+- feature_red illustrate how to have a build variants with different features. The navigation is not yet fully set up to support this though.
 - feature_test_core_utils exists to resolve a circular dependency issue by providing DispatcherProvider, which is needed by both library_core and library_core_testing.
 
 ## For reviewers
@@ -37,7 +36,7 @@ There are two kinds of module, named: feature_ and library_. A feature cannot de
 - AndroidX Crypto for Encryption
 - Intent based navigation (I plan to migrate to Jetpack Navigation)
 - Coin for AsyncImage
-- GraphQL WIP implementation
+- GraphQL WIP implementation has been removed until ready
 
 ## Technical Highlights
 - Multi modular architecture that can scale to become brand agnostic as a white label product
@@ -56,3 +55,4 @@ There are two kinds of module, named: feature_ and library_. A feature cannot de
 - Fully implement multi module jetpack navigation
 - Build up the library_core module using an agile approach
 - Demonstrate the use of graphQL in one of the implemented features
+- Get the colour scheme fully working with Android 12+ m3 Dynamic Colours

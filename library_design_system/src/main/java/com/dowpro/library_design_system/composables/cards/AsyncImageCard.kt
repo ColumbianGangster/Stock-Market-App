@@ -93,7 +93,7 @@ fun AsyncImageCard(content: AsyncImageCardContent) {
                     .then(modifier),
             )
             Column(modifier = Modifier.padding(start = 8.dp)) {
-                Text(text = content.title, style = Typography.h5)
+                Text(text = content.title, style = Typography.headlineSmall)
                 Text(text = content.body)
             }
         }

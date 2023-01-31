@@ -58,13 +58,6 @@ android {
             buildConfigField "String", "APP_NAME", '"Red"'
             manifestPlaceholders.brandName = 'red'
         }
-
-        blue {
-            dimension "brand"
-            applicationId "com.dowpro.marketapp.blue"
-            buildConfigField "String", "APP_NAME", '"Blue"'
-            manifestPlaceholders.brandName = 'blue'
-        }
     }
     compileOptions {
         coreLibraryDesugaringEnabled true

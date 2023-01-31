@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.nio.charset.StandardCharsets
 
+@Deprecated("Move towards an approach where I don't need to maintain security code")
 class EncryptedFileRepository(private val context: Context): StorageRepository {
 
     override fun write(content: String, fileName: String) {

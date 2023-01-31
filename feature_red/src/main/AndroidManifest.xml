@@ -2,25 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application>
         <activity
-            android:name=".RedListActivity" />
+            android:name=".ui.RedListActivity" />
 
         <activity
-            android:name=".RedRowActivity" />
+            android:name=".ui.RedRowActivity" />
 
         <activity
-            android:name=".RedAsyncImageColumnActivity" />
+            android:name=".ui.RedAsyncImageColumnActivity" />
 
         <activity
-            android:name=".RedStickyButtonListActivity" />
+            android:name=".ui.RedStickyButtonListActivity" />
 
         <activity
-            android:name=".RedPagerActivity" />
+            android:name=".ui.RedPagerActivity" />
 
         <activity
-            android:name=".RedReadableImageCardActivity" />
+            android:name=".ui.RedReadableImageCardActivity" />
 
         <activity
-            android:name=".RedCollapsingToolbarActivity" />
+            android:name=".ui.RedCollapsingToolbarActivity" />
 
     </application>
 </manifest>

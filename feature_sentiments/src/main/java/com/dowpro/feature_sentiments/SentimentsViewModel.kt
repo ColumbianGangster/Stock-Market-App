@@ -1,5 +1,6 @@
 package com.dowpro.feature_sentiments
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +14,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SentimentsViewModel @Inject constructor(private val stockRepository: StockRepository) : ViewModel() {
 
-    val mutableLiveData = MutableLiveData<SentimentsState>()
+    private val mutableLiveData = MutableLiveData<SentimentsState>()
+    val sentiments: LiveData<SentimentsState>
+        get() = mutableLiveData
 
     fun getSentiments() {
         mutableLiveData.value = SentimentsState.Loading(true)

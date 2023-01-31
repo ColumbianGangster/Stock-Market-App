@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.runtime.Composable
 import com.dowpro.library_design_system.composables.dialogs.MarketAlertDialog
 import com.dowpro.library_design_system.composables.loading.LoadingSurface
 import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
@@ -20,18 +21,12 @@ class SentimentsActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            AppMaterialTheme {
-                TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
-
-                }
-            }
-        }
+        setup {  }
     }
 
     override fun onStart() {
         super.onStart()
-        viewModel.mutableLiveData.observe(this@SentimentsActivity) { uiState ->
+        viewModel.sentiments.observe(this@SentimentsActivity) { uiState ->
             when (uiState) {
                 is SentimentsState.Loading -> showLoading(uiState.isLoading)
                 is SentimentsState.Success -> showSentiments(uiState.sentiments)
@@ -43,10 +38,12 @@ class SentimentsActivity : ComponentActivity() {
 
     private fun showLoading(loading: Boolean) {
         if (loading) {
-            setContent {
-                AppMaterialTheme {
-                    TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
-                        LoadingSurface()
+            setup {
+                setContent {
+                    AppMaterialTheme {
+                        TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
+                            LoadingSurface()
+                        }
                     }
                 }
             }
@@ -54,30 +51,34 @@ class SentimentsActivity : ComponentActivity() {
     }
 
     private fun showSentiments(sentiments: List<Sentiment>) {
-        setContent {
-            AppMaterialTheme {
-                TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
-                    SentimentLazyColumn(sentiments) { sentiment ->
-                        // TODO: Use URL builder which is more safe, and migrate logic to mapper.
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/finance/quote/${sentiment.ticker}"))
-                        startActivity(intent)
-                    }
-                }
+        setup {
+            SentimentLazyColumn(sentiments) { sentiment ->
+                // TODO: Use URL builder which is more safe, and migrate logic to mapper.
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/finance/quote/${sentiment.ticker}"))
+                startActivity(intent)
             }
         }
     }
 
     private fun showError(throwable: Throwable) {
+        setup {
+            MarketAlertDialog(
+                throwable = throwable,
+                retry = {
+                    viewModel.getSentiments()
+                },
+                dismiss = {
+                    finish()
+                }
+            )
+        }
+    }
+
+    private fun setup(f: @Composable () -> Unit) {
         setContent {
             AppMaterialTheme {
                 TopAppBarScaffold(title = R.string.appbar_title_stock_sentiments) {
-                    MarketAlertDialog(throwable,
-                        {
-                            viewModel.getSentiments()
-                        }, {
-                            finish()
-                        }
-                    )
+                    f()
                 }
             }
         }
