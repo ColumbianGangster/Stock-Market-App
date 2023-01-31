@@ -1,15 +1,14 @@
 dependencies {
     implementation project(path: ':library_network')
     implementation project(path: ':library_design_system')
-    implementation project(path: ':library_graphql')
     implementation project(path: ':library_core')
     implementation project(path: ':library_core_utils')
+
+    implementation project(path: ':library_core_testing')
     testImplementation project(path: ':library_core_testing')
     androidTestImplementation project(path: ':library_core_testing')
 
     implementation project(path: ':feature_sentiments')
-    implementation project(path: ':feature_stock_details')
-    implementation project(path: ':feature_crypto')
 
     def multidex_version = "2.0.1"
     implementation 'androidx.core:core-ktx:1.6.0'

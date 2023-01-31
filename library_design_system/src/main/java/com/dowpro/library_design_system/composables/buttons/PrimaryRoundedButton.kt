@@ -9,7 +9,8 @@ import com.dowpro.library_design_system.composables.spaces.MyModifier
 
 @Composable
 fun PrimaryRoundedButton(text: String, modifier: Modifier = Modifier, isEnabled: Boolean = true, onClick: () -> Unit) {
-    Button(onClick,
+    Button(
+        onClick = onClick,
         shape = RoundedCornerShape(50),
         modifier = MyModifier().then(modifier),
         enabled = isEnabled,

@@ -20,7 +20,7 @@ fun SimpleTextCard(content: RedContent, modifier: Modifier = Modifier) {
         modifier = modifier.padding(4.dp).fillMaxWidth().clickable {  },
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
-                    Text(content.title, style = Typography.h5)
+                    Text(content.title, style = Typography.headlineSmall)
                     Text(content.body, modifier = Modifier.fillMaxWidth(0.9F).padding(top = 8.dp))
         }
     }

@@ -1,14 +1,8 @@
 package com.dowpro.marketapp.di
 
 import android.content.Context
-import com.dowpro.feature_crypto.data.PokemonRepository
-import com.dowpro.feature_crypto.data.PokemonRepositoryImpl
 import com.dowpro.library_core_utils.DefaultDispatchers
 import com.dowpro.library_core_utils.DispatcherProvider
-import com.dowpro.library_graphql.GraphQLClientProvider
-import com.dowpro.library_graphql.GraphQLClientProviderImpl
-import com.dowpro.library_graphql.TokenContainer
-import com.dowpro.library_graphql.TokenRefreshHandler
 import com.dowpro.library_network.*
 import com.dowpro.library_network.repos.StockRepository
 import com.dowpro.library_network.repos.StockRepositoryImpl
@@ -20,7 +14,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -74,23 +67,4 @@ class DataModule {
     @Provides
     fun provideStorageRepository(@ApplicationContext context: Context): StorageRepository =
         EncryptedFileRepository(context)
-
-    @Provides
-    @Singleton
-    fun providesTokenContainer(): TokenContainer = TokenContainer()
-
-    @Provides
-    @Singleton
-    fun providesGraphQLClientProvider(tokenContainer: TokenContainer, refreshHandler: TokenRefreshHandler): GraphQLClientProvider = GraphQLClientProviderImpl(
-        "https://graphql-pokeapi.graphcdn.app/",
-        Headers.headersOf("Content-Type", "application/json"),
-        tokenContainer,
-        refreshHandler
-    )
-
-    @Provides
-    fun providePokemonRepository(graphQLClientProvider: GraphQLClientProvider): PokemonRepository =
-        PokemonRepositoryImpl(graphQLClientProvider)
-
-
 }

@@ -41,7 +41,7 @@ fun ReadableImageCard(content: ReadableImageCardContent, modifier: Modifier = Mo
             AsyncImage(model = content.url, contentDescription = content.contentDescription, contentScale = ContentScale.Crop)
             Box (modifier = Modifier.fillMaxSize().background(brush = Brush.verticalGradient(listOf(Color.Transparent, if(readable) Color.Black else Color.Transparent))))
             AlignBottomStartBox {
-                Text(text = content.body, style = Typography.h5.copy(color = Color.White))
+                Text(text = content.body, style = Typography.headlineSmall.copy(color = Color.White))
             }
         }
     }

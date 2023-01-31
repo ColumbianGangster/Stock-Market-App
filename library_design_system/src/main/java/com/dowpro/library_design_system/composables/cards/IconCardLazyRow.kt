@@ -47,7 +47,7 @@ fun IconCardRow(content: RowContent) {
                     .fillMaxWidth()) {
                     // I didn't use an ImageButton, which automatically makes it 48dp, because I did not want the image to be clickable. The whole card should be.
                     Icon(content.icon, contentDescription = stringResource(id = content.contentDescription), modifier = Modifier.height(48.dp))
-                    Text(content.title, style = Typography.body1)
+                    Text(content.title, style = Typography.bodyLarge)
                 }
             }
         }

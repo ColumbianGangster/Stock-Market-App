@@ -9,11 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dowpro.library_design_system.composables.scaffolds.TopAppBarScaffold
+import com.dowpro.library_design_system.theme.AppMaterialTheme
 import com.dowpro.marketapp.R
-import com.dowpro.marketapp.ui.ui.tabs.HomeTabItem
-import com.dowpro.marketapp.ui.ui.tabs.Tabs
-import com.dowpro.marketapp.ui.ui.tabs.TabsHorizontalPager
-import com.dowpro.marketapp.ui.ui.theme.MarketAppTheme
+import com.dowpro.marketapp.ui.main.tabs.HomeTabItem
+import com.dowpro.marketapp.ui.main.tabs.Tabs
+import com.dowpro.marketapp.ui.main.tabs.TabsHorizontalPager
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarketAppTheme {
+            AppMaterialTheme {
                 MainScreen()
             }
         }
