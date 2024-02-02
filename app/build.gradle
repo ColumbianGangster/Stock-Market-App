@@ -1,23 +1,22 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    // kotlin-parcelize
-    // osslicences plugin
-    // version matcher plugin
-    id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 apply from: 'dependencies.gradle'
+apply plugin: 'kotlin-android'
 apply from: 'brands.gradle'
 
 android {
-    compileSdk 33
+    namespace 'com.dowpro.marketapp'
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.dowpro.marketapp"
         minSdk 23
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -60,16 +59,14 @@ android {
         }
     }
     compileOptions {
-        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
-        // https://stackoverflow.com/questions/68045875/for-what-purpose-is-useir-used
-        // useIR removed in kotlin gradle plugin 1.7
+        jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig true
         compose true
     }
     composeOptions {
@@ -80,7 +77,6 @@ android {
             pickFirst 'META-INF/*'
         }
     }
-    namespace 'com.dowpro.marketapp'
 }
 
 kapt {
@@ -95,4 +91,8 @@ This reduces incremental compilation times by reducing how often an incremental 
  */
 hilt {
     enableAggregatingTask = true
+}
+dependencies {
+    implementation "androidx.core:core-ktx:1.12.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

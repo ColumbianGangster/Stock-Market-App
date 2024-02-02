@@ -5,17 +5,18 @@ plugins {
     // The module has no entrypoint, and therefore does not need id "kotlin-kapt"
     // https://stackoverflow.com/questions/70550883/warning-the-following-options-were-not-recognized-by-any-processor-dagger-f
 }
+apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.dowpro.library_network'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
+        testInstrumentationRunnerArguments runnerBuilder: 'de.mannodermaus.junit5.AndroidJUnit5Builder'
         minSdk 23
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunnerArgument "runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -35,7 +36,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
 }
 
@@ -70,4 +71,6 @@ dependencies {
 
     // security
     implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha03'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

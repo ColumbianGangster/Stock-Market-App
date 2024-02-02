@@ -3,17 +3,18 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id "de.mannodermaus.android-junit5" version "1.8.2.1"
 }
+apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.dowpro.library_core_testing'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
+        testInstrumentationRunnerArguments runnerBuilder: 'de.mannodermaus.junit5.AndroidJUnit5Builder'
         minSdk 23
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunnerArgument "runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -28,7 +29,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
 }
 
@@ -71,4 +72,6 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.0-alpha04"
     // Needed for createAndroidComposeRule, but not createComposeRule:
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.4.0-alpha04"
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

@@ -17,6 +17,7 @@ import com.dowpro.marketapp.ui.main.tabs.TabsHorizontalPager
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

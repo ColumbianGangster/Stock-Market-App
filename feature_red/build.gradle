@@ -1,15 +1,18 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
+apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.dowpro.feature_red'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 23
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -26,12 +29,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
     }
     buildFeatures {
+        buildConfig true
         compose true
     }
 }
@@ -42,10 +46,37 @@ dependencies {
     implementation project(path: ':library_core')
     implementation project(path: ':library_core_utils')
 
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
+
     implementation project(path: ':library_core_testing')
     testImplementation project(path: ':library_core_testing')
     androidTestImplementation project(path: ':library_core_testing')
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    // dagger
+    implementation 'com.google.dagger:hilt-android:2.44.2'
+    kapt 'com.google.dagger:hilt-compiler:2.44.2'
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.44.2'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.44.2'
+    testImplementation 'com.google.dagger:hilt-android-testing:2.44.2'
+    kaptTest 'com.google.dagger:hilt-compiler:2.44.2'
+
     implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation "androidx.core:core-ktx:+"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
+
+kapt {
+    correctErrorTypes true
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
